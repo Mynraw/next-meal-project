@@ -49,7 +49,7 @@ const Header = () => {
       {isSearchModal && (
         <OutsideClickHandler onOutsideClick={() => setIsSearchModal(false)}>
           <div className="">
-            <Title addClass={"text-red-500"}>Search</Title>
+            <Title addClass={""}>Search</Title>
           </div>
         </OutsideClickHandler>
       )}
