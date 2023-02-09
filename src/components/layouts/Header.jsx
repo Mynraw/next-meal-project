@@ -1,18 +1,20 @@
 import { useState } from "react";
-import Title from "../ui/Title";
 import Logo from "../ui/Logo";
-import OutsideClickHandler from "react-outside-click-handler";
+import Search from "../ui/Search";
+import DropdownMenu from "../ui/DropdownMenu";
 import { FaUserAlt } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";
 import { BsSearch } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
+  const [isDropdownMenu, setIsDropdownMenu] = useState(false);
   return (
     <div className="h-[5.5rem] bg-alternative">
       <div className="container mx-auto text-white flex justify-between items-center h-full">
         <Logo />
-        <nav>
+        <nav className="hidden lg:inline-block text-sm">
           <ul className="flex gap-8 uppercase">
             <li className="hover:text-primary">
               <a href="#">home</a>
@@ -41,18 +43,19 @@ const Header = () => {
           >
             <BsSearch />
           </button>
-          <a href="" className="btn-primary capitalize">
+          <a href="" className="btn-primary capitalize hidden sm:inline-block">
             order online
           </a>
+          <button
+            className="text-2xl inline-block lg:hidden"
+            onClick={() => setIsDropdownMenu(true)}
+          >
+            <AiOutlineMenu />
+          </button>
         </div>
       </div>
-      {isSearchModal && (
-        <OutsideClickHandler onOutsideClick={() => setIsSearchModal(false)}>
-          <div className="">
-            <Title addClass={""}>Search</Title>
-          </div>
-        </OutsideClickHandler>
-      )}
+      {isSearchModal && <Search setIsSearchModal={setIsSearchModal} />}
+      {isDropdownMenu && <DropdownMenu setIsDropdownMenu={setIsDropdownMenu} />}
     </div>
   );
 };
