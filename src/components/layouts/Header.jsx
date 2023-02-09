@@ -48,7 +48,7 @@ const Header = () => {
           </a>
           <button
             className="text-2xl inline-block lg:hidden"
-            onClick={() => setIsDropdownMenu(true)}
+            onClick={() => setIsDropdownMenu(!isDropdownMenu)}
           >
             <AiOutlineMenu />
           </button>
