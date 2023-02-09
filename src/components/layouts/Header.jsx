@@ -11,7 +11,7 @@ const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
   return (
-    <div className="h-[5.5rem] bg-alternative">
+    <div className="h-[5.5rem] bg-alternative px-1">
       <div className="container mx-auto text-white flex justify-between items-center h-full">
         <Logo />
         <nav className="hidden lg:inline-block text-sm">
@@ -31,15 +31,18 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex gap-5 items-center">
-          <a href="" className="hover:text-primary">
+          <a href="" className="hover:text-primary transition-all">
             <FaUserAlt />
           </a>
-          <a href="" className="hover:text-primary">
+          <a href="" className="hover:text-primary transition-all">
             <GiShoppingBag />
           </a>
           <button
-            onClick={() => setIsSearchModal(true)}
-            className="hover:text-primary"
+            onClick={() => {
+              setIsSearchModal(true);
+              setIsDropdownMenu(false);
+            }}
+            className="hover:text-primary transition-all"
           >
             <BsSearch />
           </button>
@@ -47,7 +50,7 @@ const Header = () => {
             order online
           </a>
           <button
-            className="text-2xl inline-block lg:hidden"
+            className="text-2xl inline-block lg:hidden hover:animate-pulse"
             onClick={() => setIsDropdownMenu(!isDropdownMenu)}
           >
             <AiOutlineMenu />
@@ -55,7 +58,10 @@ const Header = () => {
         </div>
       </div>
       {isSearchModal && <Search setIsSearchModal={setIsSearchModal} />}
-      {isDropdownMenu && <DropdownMenu setIsDropdownMenu={setIsDropdownMenu} />}
+      <DropdownMenu
+        isDropdownMenu={isDropdownMenu}
+        setIsDropdownMenu={setIsDropdownMenu}
+      />
     </div>
   );
 };
