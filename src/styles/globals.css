@@ -17,3 +17,7 @@ body {
 .btn-primary {
   @apply text-white px-[30px] py-[8px] rounded-3xl bg-[#f9b420] cursor-pointer hover:bg-primary transition-all;
 }
+
+.menu-landing {
+  @apply right-0 transition-all;
+}
