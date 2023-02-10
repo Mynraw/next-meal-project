@@ -6,9 +6,9 @@ import { MdDinnerDining } from "react-icons/md";
 const DropdownMenu = ({ isDropdownMenu }) => {
   return (
     <div
-      className={`relative right-[-100vw] grid place-content-center  ${
+      className={`relative grid top-[-115vh] place-content-center transition-all duration-500 ${
         isDropdownMenu && "menu-landing"
-      } transition-all`}
+      }`}
     >
       <nav className="w-screen h-screen text-lg p-5 bg-[#F9B420] grid place-content-center">
         <ul className="flex flex-col items-end gap-4 uppercase text-alternative">

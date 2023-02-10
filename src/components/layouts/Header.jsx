@@ -2,14 +2,16 @@ import { useState } from "react";
 import Logo from "../ui/Logo";
 import Search from "../ui/Search";
 import DropdownMenu from "../ui/DropdownMenu";
+import { Squash as Hamburger } from "hamburger-react";
 import { FaUserAlt } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";
 import { BsSearch } from "react-icons/bs";
-import { AiOutlineMenu } from "react-icons/ai";
 
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
+  // Hamburger
+  const [isOpen, setOpen] = useState(false);
   return (
     <div className="h-[5.5rem] bg-alternative px-1">
       <div className="container mx-auto text-white flex justify-between items-center h-full">
@@ -53,7 +55,7 @@ const Header = () => {
             className="text-2xl inline-block lg:hidden hover:animate-pulse"
             onClick={() => setIsDropdownMenu(!isDropdownMenu)}
           >
-            <AiOutlineMenu />
+            <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
           </button>
         </div>
       </div>

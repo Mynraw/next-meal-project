@@ -19,5 +19,5 @@ body {
 }
 
 .menu-landing {
-  @apply right-0 transition-all;
+  @apply top-0 transition-all duration-500;
 }
