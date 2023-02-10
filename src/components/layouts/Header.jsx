@@ -13,7 +13,7 @@ const Header = () => {
   // Hamburger
   const [isOpen, setOpen] = useState(false);
   return (
-    <div className="h-[5.5rem] bg-alternative px-1">
+    <div className="absolute z-50 h-[5.5rem] bg-transparent px-1">
       <div className="container mx-auto text-white flex justify-between items-center h-full">
         <Logo />
         <nav className="hidden lg:inline-block text-sm">
