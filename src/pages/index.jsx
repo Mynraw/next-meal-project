@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Header from "@/components/layouts/Header";
-import Carousel from "@/components/ui/Carousel";
 
 export default function Index() {
   return (
@@ -17,8 +16,9 @@ export default function Index() {
           crossOrigin="true"
         />
       </Head>
-      <Header />
-      <Carousel />
+      <div>
+        <Header />
+      </div>
     </>
   );
 }
