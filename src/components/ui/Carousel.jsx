@@ -4,32 +4,56 @@ import Slider from "react-slick";
 const Carousel = () => {
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
-    speed: 200,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    draggable: true,
+    // dotsClass: "text-red",
+    appendDots: (dots) => (
+      <div className="rounded-full">
+        <ul>{dots}</ul>
+      </div>
+    ),
   };
   return (
-    // <section className="relative pt-24 grid place-content-center">
-    //   <div className="container grid grid-cols-12 items-start gap-y-7 text-white">
-    //     <Title addClass="text-3xl col-start-1 col-end-8">
-    //       Most Dramatic Burgers
-    //     </Title>
-    //     <p className="col-start-1 col-end-12 md:col-end-8 text-sm">
-    //       Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae
-    //       voluptate sed architecto eligendi sint ipsa minus quas, quae nesciunt
-    //       molestias ducimus blanditiis et? Pariatur asperiores nihil blanditiis
-    //       ad quidem!
-    //     </p>
-    //     <button className="btn-primary col-start-1 col-end-6 sm:col-end-4 md:col-end-3 ">
-    //       Order Now
-    //     </button>
-    //   </div>
-    // </section>
-
-    <Slider {...settings}></Slider>
+    <div className="container mx-auto mt-48 pt-5">
+      <Slider {...settings}>
+        <section className="text-white">
+          <Title addClass="text-5xl">Most Dramatic Burgers</Title>
+          <p className="text-sm my-7 w-auto md:w-6/12">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae
+            voluptate sed architecto eligendi sint ipsa minus quas, quae
+            nesciunt molestias ducimus blanditiis et? Pariatur asperiores nihil
+            blanditiis ad quidem!
+          </p>
+          <button className="btn-primary">Order Now</button>
+        </section>
+        <section className="text-white">
+          <Title addClass="text-5xl">Karen&apos;s Choice</Title>
+          <p className="text-sm my-7 w-auto md:w-6/12">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae
+            voluptate sed architecto eligendi sint ipsa minus quas, quae
+            nesciunt molestias ducimus blanditiis et? Pariatur asperiores nihil
+            blanditiis ad quidem!
+          </p>
+          <button className="btn-primary">Order Now</button>
+        </section>
+        <section className="text-white">
+          <Title addClass="text-5xl">book now</Title>
+          <p className="text-sm my-7 w-auto md:w-6/12">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vitae
+            voluptate sed architecto eligendi sint ipsa minus quas, quae
+            nesciunt molestias ducimus blanditiis et? Pariatur asperiores nihil
+            blanditiis ad quidem!
+          </p>
+          <button className="btn-primary">Order Now</button>
+        </section>
+      </Slider>
+    </div>
   );
 };
 

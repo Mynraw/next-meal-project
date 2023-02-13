@@ -25,7 +25,8 @@ const Header = () => {
           sizes="100vw"
           style={{
             objectFit: "cover",
-            objectPosition: isDropdownMenu ? "right top" : "center",
+            // objectPosition: isDropdownMenu ? "right top" : "center",
+            objectPosition: "center",
           }}
         />
       </div>
@@ -84,7 +85,7 @@ const Header = () => {
           setIsDropdownMenu={setIsDropdownMenu}
         />
       </header>
-      {!isDropdownMenu && <Carousel />}
+      <Carousel />
     </div>
   );
 };

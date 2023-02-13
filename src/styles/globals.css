@@ -21,3 +21,10 @@ body {
 .menu-landing {
   @apply top-0 transition-all duration-500;
 }
+/* Slick override */
+.slick-dots li.slick-active button:before {
+  @apply text-primary opacity-100;
+}
+.slick-dots li button::before {
+  @apply text-white text-xl opacity-100;
+}

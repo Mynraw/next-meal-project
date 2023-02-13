@@ -6,7 +6,7 @@ import { MdDinnerDining } from "react-icons/md";
 const DropdownMenu = ({ isDropdownMenu }) => {
   return (
     <div
-      className={`relative grid top-[-150vh] place-content-center transition-all duration-500 ${
+      className={`relative grid z-50 top-[-150vh] place-content-center transition-all duration-500 ${
         isDropdownMenu && "menu-landing"
       }`}
     >
