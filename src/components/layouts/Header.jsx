@@ -3,7 +3,6 @@ import Logo from "../ui/Logo";
 import Search from "../ui/Search";
 import DropdownMenu from "../ui/DropdownMenu";
 import Image from "next/image";
-import Carousel from "../Carousel";
 import { Squash as Hamburger } from "hamburger-react";
 import { FaUserAlt } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";
@@ -25,7 +24,6 @@ const Header = () => {
           sizes="100vw"
           style={{
             objectFit: "cover",
-            // objectPosition: isDropdownMenu ? "right top" : "center",
             objectPosition: "center",
           }}
         />
@@ -85,7 +83,6 @@ const Header = () => {
           setIsDropdownMenu={setIsDropdownMenu}
         />
       </header>
-      <Carousel />
     </div>
   );
 };

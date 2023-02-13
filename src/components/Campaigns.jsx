@@ -3,9 +3,9 @@ import { GiShoppingBag } from "react-icons/gi";
 
 const Campaigns = () => {
   return (
-    <div className="container flex items-center justify-start gap-7 mx-auto my-24">
-      <div className="flex items-center gap-3 justify-start bg-alternative p-5 rounded-sm w-full group">
-        <div className="border-[3px] rounded-full border-primary p-0 m-0 w-[150px] h-[150px] relative">
+    <div className="container my-20 grid grid-cols-2 gap-4 mx-auto">
+      <div className="col-span-2 md:col-span-1 flex sm:flex-row md:flex-col lg:flex-row items-center gap-3 justify-start bg-alternative p-5 rounded-sm w-full group">
+        <div className="border-[3px] rounded-full border-primary p-0 m-0 w-[180px] h-[180px] relative">
           <Image
             src="/images/f11.jpg"
             alt="campaign item"
@@ -23,8 +23,8 @@ const Campaigns = () => {
           </button>
         </div>
       </div>
-      <div className="flex items-center gap-3 justify-start bg-alternative p-5 rounded-sm w-full group">
-        <div className="border-[3px] rounded-full border-primary p-0 m-0 w-[150px] h-[150px] relative">
+      <div className="col-span-2 md:col-span-1 flex sm:flex-row md:flex-col lg:flex-row items-center gap-3 justify-start bg-alternative p-5 rounded-sm w-full group">
+        <div className="border-[3px] rounded-full border-primary p-0 m-0 w-[180px] h-[180px] relative">
           <Image
             src="/images/f11.jpg"
             alt="campaign item"

@@ -23,7 +23,7 @@ body {
 }
 /* Slick override */
 .slick-dots {
-  @apply flex justify-start relative left-5;
+  @apply flex justify-start relative left-0 top-24;
 }
 
 .slick-dots li {

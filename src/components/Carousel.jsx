@@ -20,7 +20,7 @@ const Carousel = () => {
     ),
   };
   return (
-    <div className="container mx-auto mt-48 pt-5">
+    <div className="container relative top-[-500px] mx-auto h-0">
       <Slider {...settings}>
         <section className="text-white">
           <Title addClass="text-5xl">Most Dramatic Burgers</Title>
