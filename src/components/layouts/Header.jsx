@@ -3,7 +3,7 @@ import Logo from "../ui/Logo";
 import Search from "../ui/Search";
 import DropdownMenu from "../ui/DropdownMenu";
 import Image from "next/image";
-import Carousel from "../ui/Carousel";
+import Carousel from "../Carousel";
 import { Squash as Hamburger } from "hamburger-react";
 import { FaUserAlt } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";

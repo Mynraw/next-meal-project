@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "@/components/layouts/Header";
+import Campaigns from "@/components/Campaigns";
 
 export default function Index() {
   return (
@@ -18,6 +19,7 @@ export default function Index() {
       </Head>
       <div>
         <Header />
+        <Campaigns />
       </div>
     </>
   );

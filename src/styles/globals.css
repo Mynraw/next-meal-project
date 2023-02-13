@@ -22,9 +22,19 @@ body {
   @apply top-0 transition-all duration-500;
 }
 /* Slick override */
+.slick-dots {
+  @apply flex justify-start relative left-5;
+}
+
+.slick-dots li {
+  @apply mx-1;
+}
 .slick-dots li.slick-active button:before {
   @apply text-primary opacity-100;
 }
 .slick-dots li button::before {
-  @apply text-white text-xl opacity-100;
+  @apply text-white text-sm opacity-100;
+}
+.slick-active button::before {
+  @apply scale-125;
 }

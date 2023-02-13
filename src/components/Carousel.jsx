@@ -1,4 +1,4 @@
-import Title from "./Title";
+import Title from "./ui/Title";
 import Slider from "react-slick";
 
 const Carousel = () => {
@@ -14,7 +14,7 @@ const Carousel = () => {
     draggable: true,
     // dotsClass: "text-red",
     appendDots: (dots) => (
-      <div className="rounded-full">
+      <div>
         <ul>{dots}</ul>
       </div>
     ),
