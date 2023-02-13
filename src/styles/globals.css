@@ -18,6 +18,18 @@ body {
   @apply text-white px-[30px] py-[8px] rounded-3xl bg-[#f9b420] cursor-pointer hover:bg-primary transition-all;
 }
 
+.btn-menu {
+  @apply capitalize rounded-full py-2 px-5 transition-all;
+}
+
+.btn-active {
+  @apply bg-alternative text-white capitalize rounded-full py-2 px-5 transition-all;
+}
+
+.btn-passive {
+  @apply bg-white text-black transition-all;
+}
+
 .menu-landing {
   @apply top-0 transition-all duration-500;
 }

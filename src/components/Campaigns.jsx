@@ -5,6 +5,8 @@ const style = {
   objectCover: "fit",
 };
 
+const sizes = "(max-width: 768px) 100vw (max-width: 1200px) 50vw, 33vw";
+
 const CampaignItem = () => {
   return (
     <div className="container my-20 grid grid-cols-2 gap-4 mx-auto">
@@ -16,6 +18,7 @@ const CampaignItem = () => {
             fill
             className="rounded-full group-hover:scale-110 transition-all"
             style={style}
+            sizes={sizes}
           />
         </div>
         <div className="text-white grid gap-3">
@@ -36,6 +39,7 @@ const CampaignItem = () => {
             fill
             className="rounded-full group-hover:scale-110 transition-all"
             style={style}
+            sizes={sizes}
           />
         </div>
         <div className="text-white grid gap-3">

@@ -1,6 +1,11 @@
+import { useState } from "react";
 import MenuItems from "./ui/MenuItems";
 
 const Menu = () => {
+  const [isLiActive, setIsLiActive] = useState(false);
+  const handleClick = () => {
+    setIsLiActive(true);
+  };
   return (
     <div className="container grid place-content-center mx-auto">
       <div>
@@ -11,19 +16,46 @@ const Menu = () => {
       <div>
         <ul className="flex items-center gap-5">
           <li>
-            <button className="capitalize">all</button>
+            <button
+              onClick={() => handleClick()}
+              className={"btn-menu" + (isLiActive && "btn-active")}
+            >
+              all
+            </button>
           </li>
           <li>
-            <button className="capitalize">burger</button>
+            <button
+              onClick={() => handleClick()}
+              className={
+                "btn-menu" + (isLiActive ? "btn-active" : "btn-passive")
+              }
+            >
+              burger
+            </button>
           </li>
           <li>
-            <button className="capitalize">pizza</button>
+            <button
+              onClick={() => handleClick()}
+              className={"btn-menu" + (isLiActive && "btn-active")}
+            >
+              pizza
+            </button>
           </li>
           <li>
-            <button className="capitalize">pasta</button>
+            <button
+              onClick={() => handleClick()}
+              className={"btn-menu" + (isLiActive && "btn-active")}
+            >
+              pasta
+            </button>
           </li>
           <li>
-            <button className="capitalize">fries</button>
+            <button
+              onClick={() => handleClick()}
+              className={"btn-menu" + (isLiActive && "btn-active")}
+            >
+              fries
+            </button>
           </li>
         </ul>
       </div>
