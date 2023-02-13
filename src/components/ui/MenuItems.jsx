@@ -1,13 +1,13 @@
 import Image from "next/image";
-import meals from "src/data/meals.json";
+import { meals } from "@/data/meals";
 import { GiShoppingBag } from "react-icons/gi";
 
 const sizes = "(max-width: 768px) 100vw (max-width: 1200px) 50vw, 33vw";
 
-const MealTemplate = (props) => {
+const MealTemplate = () => {
   return (
     <div>
-      {props.data.map((content) => {
+      {meals.map((content) => {
         <div className="bg-alternative text-white rounded-2xl pb-3">
           <div className="relative bg-[#F1F2F3] grid place-content-center rounded-t-xl rounded-bl-[38px] p-5 overflow-hidden">
             <Image
@@ -40,7 +40,7 @@ const MenuItems = () => {
   return (
     <div className="bg-red-500 w-full h-full">
       works?
-      <MealTemplate data={meals} />
+      <MealTemplate />
     </div>
   );
 };
