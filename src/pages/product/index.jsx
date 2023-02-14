@@ -1,14 +1,18 @@
 import Image from "next/image";
 import Title from "@/components/ui/Title";
 
+const style = {
+  objectFit: "contain",
+};
+
 const Index = () => {
   return (
-    <div className="w-screen h-screen grid place-items-center">
-      <div className="container mx-auto grid grid-cols-2 items-center gap-10">
+    <div className="grid place-items-center">
+      <div className="container h-screen w-screen mx-auto grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-x-28">
         <div className="relative h-[100%] w-[100%]">
-          <Image src="/images/f1.png" alt="piz" fill />
+          <Image src="/images/f1.png" alt="piz" fill style={style} />
         </div>
-        <div className="flex flex-col gap-6">
+        <div className="relative flex flex-col gap-y-6">
           <Title addClass="text-4xl">item</Title>
           <span className="text-primary underline underline-offset-4 text-xl">
             $ price
@@ -23,19 +27,19 @@ const Index = () => {
             <div className="flex items-center gap-10">
               <button className="relative">
                 <Image src="/images/size.png" alt="" width={60} height={60} />
-                <span className="bg-primary text-black rounded-lg px-3 absolute left-5 bottom-12 overflow-hidden">
+                <span className="bg-primary text-black text-sm rounded-lg px-3 absolute left-5 bottom-12 overflow-hidden">
                   Small
                 </span>
               </button>
               <button className="relative">
                 <Image src="/images/size.png" alt="" width={80} height={80} />
-                <span className="bg-primary text-black rounded-lg px-3 absolute left-7 bottom-16 overflow-hidden">
+                <span className="bg-primary text-black text-sm rounded-lg px-3 absolute left-7 bottom-16 overflow-hidden">
                   Medium
                 </span>
               </button>
               <button className="relative">
                 <Image src="/images/size.png" alt="" width={100} height={100} />
-                <span className="bg-primary text-black rounded-lg px-3 absolute left-10 bottom-20 overflow-hidden">
+                <span className="bg-primary text-black text-sm rounded-lg px-3 absolute left-10 bottom-20 overflow-hidden">
                   Large
                 </span>
               </button>
@@ -45,20 +49,32 @@ const Index = () => {
             <strong className="block text-2xl mb-1">
               Choose additional ingredients
             </strong>
-            <div className="flex items-center gap-1">
-              <input className="w-5 h-5" id="test" type={"checkbox"} />
+            <div className="flex items-center gap-x-1">
+              <input
+                className="w-5 h-5 accent-primary"
+                id="test"
+                type={"checkbox"}
+              />
               <label className="mr-3" for="test">
                 ketchup
               </label>
-              <input className="w-5 h-5" id="test2" type={"checkbox"} />
+              <input
+                className="w-5 h-5 accent-primary"
+                id="test2"
+                type={"checkbox"}
+              />
               <label className="mr-3" for="test2">
                 test
               </label>
-              <input className="w-5 h-5" id="test3" type={"checkbox"} />
+              <input
+                className="w-5 h-5 accent-primary"
+                id="test3"
+                type={"checkbox"}
+              />
               <label for={"test3"}>test</label>
             </div>
           </div>
-          <button className="btn-primary max-w-[150px]">Add to card</button>
+          <button className="btn-primary max-w-[150px]">Add to cart</button>
         </div>
       </div>
     </div>
