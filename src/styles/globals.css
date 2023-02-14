@@ -23,11 +23,11 @@ body {
 }
 
 .btn-active {
-  @apply bg-alternative text-white capitalize rounded-full py-2 px-5 transition-all;
+  @apply bg-alternative text-white rounded-full py-2 px-5 transition-all;
 }
 
 .btn-passive {
-  @apply bg-white text-black transition-all;
+  @apply bg-white text-black transition-all capitalize rounded-full py-2 px-5;
 }
 
 .menu-landing {

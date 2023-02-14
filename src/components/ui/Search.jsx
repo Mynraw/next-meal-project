@@ -6,7 +6,7 @@ import { MdCancel } from "react-icons/md";
 
 const Search = ({ setIsSearchModal }) => {
   return (
-    <div className="fixed w-screen h-screen top-0 left-0 after:content-[''] after:w-screen after:h-screen after:bg-gray-500 after:absolute after:left-0 after:top-0 after:opacity-60 grid place-content-center">
+    <div className="fixed w-screen h-screen z-50 top-0 left-0 after:content-[''] after:w-screen after:h-screen after:bg-gray-500 after:absolute after:left-0 after:top-0 after:opacity-60 grid place-content-center">
       <OutsideClickHandler onOutsideClick={() => setIsSearchModal(false)}>
         <div className="relative z-50 w-[370px] md:w-[600px] bg-white shadow-2xl border-alternative p-8 rounded-3xl">
           <div className="absolute top-3 right-3">
