@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Title from "./ui/Title";
 
 const About = () => {
   return (
     <div className="bg-alternative">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 order-2 md:order-2 items-center py-24">
         <div className="text-white flex flex-col gap-7 order-1 md:order-2">
-          <h1 className="text-4xl font-permaMarker">we are sjwburger</h1>
+          <Title addClass={"text-4xl font-permaMarker"}>we are sjwburger</Title>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsum
             impedit, quae atque velit doloremque amet nihil libero dolore? Hic
