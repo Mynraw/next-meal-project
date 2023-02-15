@@ -2,6 +2,39 @@ import Input from "./form/Input";
 import Title from "./ui/Title";
 
 const Reservation = () => {
+  const inputs = [
+    {
+      id: 1,
+      name: "fullName",
+      type: "text",
+      placeholder: "your full name",
+    },
+    {
+      id: 2,
+      name: "phoneNumber",
+      type: "number",
+      placeholder: "phone number",
+    },
+    {
+      id: 3,
+      name: "eMail",
+      type: "email",
+      placeholder: "your e-mail",
+    },
+    {
+      id: 4,
+      name: "resCount",
+      type: "select",
+      placeholder: "number of people",
+    },
+    {
+      id: 1,
+      name: "resDate",
+      type: "date",
+      placeholder: "dd.mm.yyyy",
+    },
+  ];
+
   return (
     <div className="w-full h-full container mx-auto py-16">
       <div className="mb-10">
@@ -10,11 +43,9 @@ const Reservation = () => {
       <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-x-10 text-center lg:text-left">
         <div className="flex-1 w-full mb-10 lg:mb-0">
           <div className="flex flex-col gap-y-3.5 mb-5 lg:mb-8">
-            <Input inputType="text" />
-            <Input inputType="number" />
-            <Input inputType="email" />
-            <Input inputType="select" />
-            <Input inputType="date" />
+            {inputs.map((input) => (
+              <Input key={input.id} {...input} />
+            ))}
           </div>
           <button className="btn-primary uppercase">book now</button>
         </div>
