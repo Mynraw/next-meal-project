@@ -8,11 +8,11 @@ const style = {
 const Index = () => {
   return (
     <div className="grid place-items-center">
-      <div className="container h-screen w-screen mx-auto grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-x-28">
+      <div className="container h-screen w-screen grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-x-28">
         <div className="relative h-[100%] w-[100%]">
           <Image src="/images/f1.png" alt="piz" fill style={style} />
         </div>
-        <div className="relative flex flex-col gap-y-6">
+        <div className="relative flex flex-col gap-y-6 items-center md:items-start">
           <Title addClass="text-4xl">item</Title>
           <span className="text-primary underline underline-offset-4 text-xl">
             $ price
@@ -46,10 +46,10 @@ const Index = () => {
             </div>
           </div>
           <div className="">
-            <strong className="block text-2xl mb-1">
+            <strong className="block text-2xl mb-2">
               Choose additional ingredients
             </strong>
-            <div className="flex items-center gap-x-1">
+            <div className="flex items-center justify-center md:justify-start gap-x-1 mb-1">
               <input
                 className="w-5 h-5 accent-primary"
                 id="test"
