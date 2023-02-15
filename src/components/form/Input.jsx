@@ -1,14 +1,15 @@
-const Input = (inputType) => {
+const Input = (props) => {
+  console.log(props);
   return (
     <div className="w-full">
       <label className="relative block">
         <input
-          type={inputType}
+          type={props.type}
           className="w-full h-14 p-4 outline-none border-[1.5px] border-primary rounded-md peer"
           required
         />
         <span className="absolute left-3 top-3.5 text-lg opacity-50 capitalize transition-all peer-focus:top-0.5 peer-focus:left-4 peer-focus:text-sm peer-focus:transition-all peer-valid:top-0.5 peer-valid:left-4 peer-valid:text-sm peer-valid:transition-all">
-          test
+          {props.placeholder}
         </span>
       </label>
       {/* <select>
