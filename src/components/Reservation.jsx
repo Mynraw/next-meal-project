@@ -28,10 +28,10 @@ const Reservation = () => {
       placeholder: "number of people",
     },
     {
-      id: 1,
+      id: 5,
       name: "resDate",
       type: "date",
-      placeholder: "dd.mm.yyyy",
+      placeholder: "",
     },
   ];
 

@@ -30,12 +30,31 @@ body {
   @apply bg-white text-black transition-all capitalize rounded-full py-2 px-5;
 }
 
+/* Select input arrow override */
+.select-arrow {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.3rem top 50%;
+  background-size: 0.65rem auto;
+}
+
+.client-box::before {
+  content: "";
+  position: relative;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg) translateX(-50%);
+}
+
 .menu-landing {
   @apply top-0 transition-all duration-500;
 }
 /* Slick override */
 .slick-dots {
-  @apply flex justify-start relative left-0 top-24;
+  @apply flex justify-start relative left-2 top-24;
 }
 
 .slick-dots li {
@@ -49,4 +68,35 @@ body {
 }
 .slick-active button::before {
   @apply scale-125;
+}
+
+.slick-track {
+  @apply flex items-center gap-x-5;
+}
+
+.client-slide .slick-list .slick-track {
+  @apply min-h-[450px];
+}
+
+.slick-prev,
+.slick-next {
+  @apply h-11 w-11 bg-[#FABE33] rounded-full;
+}
+
+.slick-prev {
+  @apply top-[490px] sm:left-[42%] md:left-[44%]  lg:left-[45%] xl:left-[46%];
+}
+
+.slick-next {
+  @apply top-[490px] sm:right-[42%] md:right-[44%] lg:right-[45%] xl:right-[46%];
+}
+
+.slick-next:hover,
+.slick-prev:hover {
+  @apply bg-[#FABE33];
+}
+
+.slick-prev::before,
+.slick-next::before {
+  @apply content-none;
 }
