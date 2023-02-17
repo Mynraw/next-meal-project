@@ -4,6 +4,7 @@ import Menu from "@/components/Menu";
 import About from "@/components/About";
 import Reservation from "@/components/Reservation";
 import Customers from "@/components/Customers";
+import Footer from "@/components/layouts/Footer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <About />
       <Reservation />
       <Customers />
+      <Footer />
     </div>
   );
 };
