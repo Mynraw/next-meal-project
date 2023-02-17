@@ -1,24 +1,33 @@
 const Input = (props) => {
-  const { type, placeholder, ...rest } = props;
+  const { type, placeholder, errormessage, touched, ...rest } = props;
   return (
     <div className="w-full">
       {props.type !== "select" && (
         <label className="relative block">
           <input
             type={props.type}
-            className="w-full h-14 p-4 outline-none border-[1.5px] border-primary rounded-md peer"
+            className={`w-full h-14 p-4 outline-none border-[1.5px] rounded-md border-[1.5px]rounded-md peer
+              ${errormessage && touched ? "border-red-500" : "border-primary"}`}
             required
             {...rest}
           />
           <span className="absolute left-3 top-3.5 text-lg opacity-50 capitalize transition-all peer-focus:top-0.5 peer-focus:left-4 peer-focus:text-sm peer-focus:transition-all peer-valid:top-0.5 peer-valid:left-4 peer-valid:text-sm peer-valid:transition-all">
             {props.placeholder}
           </span>
+          {errormessage && touched ? (
+            <span className="text-red-500 font-light">{errormessage}</span>
+          ) : null}
         </label>
       )}
       {props.type === "select" && (
         <label className="relative block">
           <select
-            className="w-full h-14 select-arrow p-4 outline-none border-[1.5px] border-primary rounded-md"
+            className={`w-full select-arrow h-14 p-4 outline-none border-[1.5px] rounded-md border-[1.5px]rounded-md peer
+                        ${
+                          errormessage && touched
+                            ? "border-red-500"
+                            : "border-primary"
+                        }`}
             required
             {...rest}
           >
@@ -34,6 +43,9 @@ const Input = (props) => {
             <option value={"7"}>7</option>
             <option value={"8"}>8</option>
           </select>
+          {errormessage && touched ? (
+            <span className="text-red-500">{errormessage}</span>
+          ) : null}
         </label>
       )}
     </div>
