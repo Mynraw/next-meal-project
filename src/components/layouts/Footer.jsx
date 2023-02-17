@@ -88,7 +88,8 @@ const Footer = () => {
         </div>
         <div className="text-center text-white mt-12">
           <p className="capitalize">
-            &copy; 2023 all rights reserved by <span>mynraw</span>
+            &copy; 2023 all rights reserved by{" "}
+            <span className="stamp text-2xl pl-1">mynraw</span>
           </p>
         </div>
       </div>
