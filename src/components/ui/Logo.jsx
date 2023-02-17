@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 const Logo = () => {
   return (
     <div>
       <h1 className="text-white font-permaMarker text-[2rem]">
-        <a href="#">
+        <Link href="/home">
           <span className="text-orange-500">SJW</span>Burger
-        </a>
+        </Link>
       </h1>
     </div>
   );

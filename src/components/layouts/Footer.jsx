@@ -89,7 +89,9 @@ const Footer = () => {
         <div className="text-center text-white mt-12">
           <p className="capitalize">
             &copy; 2023 all rights reserved by{" "}
-            <span className="stamp text-2xl pl-1">mynraw</span>
+            <Link href="https://github.com/Mynraw" target="_blank">
+              <span className="stamp text-2xl pl-1">mynraw</span>
+            </Link>
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import Logo from "../ui/Logo";
 import Search from "../ui/Search";
 import DropdownMenu from "../ui/DropdownMenu";
@@ -11,8 +12,7 @@ import { BsSearch } from "react-icons/bs";
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
-  // Hamburger
-  const [isOpen, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen relative">
       <div className="absolute top-0 left-0 h-full w-full">
@@ -21,7 +21,6 @@ const Header = () => {
           alt="hero bg"
           quality={100}
           fill
-          sizes="100vw"
           style={{
             objectFit: "cover",
             objectPosition: "center",
@@ -34,26 +33,26 @@ const Header = () => {
           <nav className="hidden lg:inline-block text-sm">
             <ul className="flex gap-8 uppercase">
               <li className="hover:text-primary">
-                <a href="#">home</a>
+                <Link href="/home">home</Link>
               </li>
               <li className="hover:text-primary">
-                <a href="#">menu</a>
+                <Link href="/menu">menu</Link>
               </li>
               <li className="hover:text-primary">
-                <a href="#">about</a>
+                <Link href="/about">about</Link>
               </li>
               <li className="hover:text-primary">
-                <a href="#">book table</a>
+                <Link href="/reservation">book table</Link>
               </li>
             </ul>
           </nav>
           <div className="flex gap-5 items-center">
-            <a href="" className="hover:text-primary transition-all">
+            <Link href="/" className="hover:text-primary transition-all">
               <FaUserAlt />
-            </a>
-            <a href="" className="hover:text-primary transition-all">
+            </Link>
+            <Link href="/" className="hover:text-primary transition-all">
               <GiShoppingBag />
-            </a>
+            </Link>
             <button
               onClick={() => {
                 setIsSearchModal(true);
@@ -63,17 +62,21 @@ const Header = () => {
             >
               <BsSearch />
             </button>
-            <a
-              href=""
+            <Link
+              href="/"
               className="btn-primary capitalize hidden sm:inline-block"
             >
               order online
-            </a>
+            </Link>
             <button
               className="text-2xl inline-block lg:hidden hover:animate-pulse"
               onClick={() => setIsDropdownMenu(!isDropdownMenu)}
             >
-              <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
+              <Hamburger
+                toggled={isDropdownMenu}
+                toggle={setIsDropdownMenu}
+                size={24}
+              />
             </button>
           </div>
         </div>
