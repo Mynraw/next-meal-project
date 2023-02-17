@@ -1,6 +1,7 @@
 import Input from "./form/Input";
 import Title from "./ui/Title";
 import { useFormik } from "formik";
+import { resSchema } from "schema/reservationSchema";
 
 const Reservation = () => {
   const onSubmit = async (values, actions) => {
@@ -8,16 +9,18 @@ const Reservation = () => {
     actions.resetForm();
   };
 
-  const { values, handleChange, handleSubmit } = useFormik({
-    initialValues: {
-      fullName: "",
-      phoneNumber: "",
-      eMail: "",
-      resCount: "",
-      resDate: "",
-    },
-    onSubmit,
-  });
+  const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
+    useFormik({
+      initialValues: {
+        fullName: "",
+        phoneNumber: "",
+        eMail: "",
+        resCount: "",
+        resDate: "",
+      },
+      validationSchema: resSchema,
+      onSubmit,
+    });
 
   const inputs = [
     {
@@ -26,6 +29,8 @@ const Reservation = () => {
       type: "text",
       placeholder: "your full name",
       value: values.fullName,
+      errormessage: errors.fullName,
+      touched: touched.fullName,
     },
     {
       id: 2,
@@ -33,6 +38,8 @@ const Reservation = () => {
       type: "number",
       placeholder: "phone number",
       value: values.phoneNumber,
+      errormessage: errors.phoneNumber,
+      touched: touched.phoneNumber,
     },
     {
       id: 3,
@@ -40,6 +47,8 @@ const Reservation = () => {
       type: "email",
       placeholder: "your e-mail",
       value: values.eMail,
+      errormessage: errors.eMail,
+      touched: touched.eMail,
     },
     {
       id: 4,
@@ -47,6 +56,8 @@ const Reservation = () => {
       type: "select",
       placeholder: "number of people",
       value: values.resCount,
+      errormessage: errors.resCount,
+      touched: touched.resCount,
     },
     {
       id: 5,
@@ -54,6 +65,8 @@ const Reservation = () => {
       type: "date",
       placeholder: "",
       value: values.resDate,
+      errormessage: errors.resDate,
+      touched: touched.resDate,
     },
   ];
 
@@ -70,6 +83,7 @@ const Reservation = () => {
                 key={input.id}
                 {...input}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 value={input.value}
               />
             ))}

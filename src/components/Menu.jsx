@@ -9,9 +9,9 @@ const Menu = () => {
     pasta: false,
     fries: false,
   });
-  const handleClick = (prop) => {
-    setLiActive((prevVal) => ({ ...prevVal, ...prop }));
-  };
+  // const handleClick = (prop) => {
+  //   setLiActive((prevVal) => ({ ...prevVal, ...prop }));
+  // };
   return (
     <div className="container grid place-content-center mx-auto">
       <div>

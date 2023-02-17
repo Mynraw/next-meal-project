@@ -7,11 +7,11 @@ const sizes = "(max-width: 768px) 100vw (max-width: 1200px) 50vw, 33vw";
 const MealTemplate = () => {
   return (
     <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-7">
-      {meals.map((content, key) => {
+      {meals.map((content) => {
         return (
           <div
             className="bg-alternative text-white rounded-2xl pb-4 group"
-            key={key}
+            key={content.mealId}
           >
             <div className="relative bg-[#F1F2F3] grid place-content-center rounded-t-xl h-[200px] rounded-bl-[38px] p-5 overflow-hidden">
               <Image

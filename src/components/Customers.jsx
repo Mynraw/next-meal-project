@@ -23,6 +23,8 @@ const SamplePrevArrow = (props) => {
 };
 
 const Customers = () => {
+  const sizes = "(max-width: 768px) 100vw (max-width: 1200px) 50vw, 33vw";
+
   const style = {
     objectFit: "cover",
   };
@@ -70,6 +72,7 @@ const Customers = () => {
                   alt="person"
                   fill
                   style={style}
+                  sizes={sizes}
                 />
               </div>
             </div>
