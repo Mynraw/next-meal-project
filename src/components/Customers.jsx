@@ -34,7 +34,7 @@ const Customers = () => {
     speed: 800,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     draggable: true,
     className: "client-slide",
@@ -53,23 +53,20 @@ const Customers = () => {
 
   return (
     <div className="container w-full h-full mx-auto text-center py-16">
-      <Title addClass={"text-4xl mb-8"}>what our customers say</Title>
+      <Title addClass={"text-4xl"}>what our customers say</Title>
       <Slider {...settings}>
         {customers.map((customer) => {
           return (
-            <div key={customer.id}>
-              <div className="bg-alternative relative flex flex-col gap-3 text-left rounded-lg p-5 text-white">
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
-                  provident!
-                </p>
-                <strong className="block text-xl">name</strong>
-                <span>{customer.name}</span>
+            <div key={customer.id} className="h-full">
+              <div className="bg-alternative relative flex flex-col items-start gap-3 text-left rounded-lg p-5 text-white">
+                <p>{customer.comment}</p>
+                <strong className="block text-xl">{customer.name}</strong>
+                <span>{customer.title}</span>
               </div>
               <div className="relative top-5 h-28 w-28 border-4 border-primary rounded-full before:content-[''] before:absolute before:top-[-5px] before:left-10 before:w-5 before:h-5 before:bg-primary before:origin-right before:rotate-45">
                 <Image
                   className="rounded-full"
-                  src={"/images/client1.jpg"}
+                  src={`/images/client${customer.id}.jpg`}
                   alt="person"
                   fill
                   style={style}
@@ -78,45 +75,6 @@ const Customers = () => {
             </div>
           );
         })}
-
-        <div>
-          <div className="bg-alternative flex flex-col gap-3 text-left rounded-lg p-5 text-white">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
-              provident!
-            </p>
-            <strong className="block text-xl">name</strong>
-            <span>title?</span>
-          </div>
-          <div className="relative top-5 h-28 w-28 border-4 border-primary rounded-full before:content-[''] before:absolute before:top-[-5px] before:left-10 before:w-5 before:h-5 before:bg-primary before:origin-right before:rotate-45">
-            <Image
-              className="rounded-full"
-              src={"/images/client1.jpg"}
-              alt="person"
-              fill
-              style={style}
-            />
-          </div>
-        </div>
-        <div>
-          <div className="bg-alternative flex flex-col gap-3 text-left rounded-lg p-5 text-white">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
-              provident!
-            </p>
-            <strong className="block text-xl">name</strong>
-            <span>title?</span>
-          </div>
-          <div className="relative top-5 h-28 w-28 border-4 border-primary rounded-full before:content-[''] before:absolute before:top-[-5px] before:left-10 before:w-5 before:h-5 before:bg-primary before:origin-right before:rotate-45">
-            <Image
-              className="rounded-full"
-              src={"/images/client1.jpg"}
-              alt="person"
-              fill
-              style={style}
-            />
-          </div>
-        </div>
       </Slider>
     </div>
   );
