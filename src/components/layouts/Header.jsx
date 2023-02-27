@@ -47,40 +47,35 @@ const Header = () => {
             </ul>
           </nav>
           <div className="flex gap-5 items-center">
-            <div class="dropdown group">
-              <button>
-                <FaUserAlt />
-              </button>
-              <ul class="dropdown-menu absolute hidden text-black group-hover:block">
-                <li class="">
-                  <a
-                    class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
+            <div className="dropdown group w-4 h-4">
+              <FaUserAlt className="cursor-pointer hover:text-primary transition-all" />
+              <ul className="dropdown-menu absolute hidden mt-1 text-black group-hover:block group-hover:transition-all">
+                <li className="">
+                  <Link
+                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    href="/profile"
                   >
-                    One
-                  </a>
+                    Profile
+                  </Link>
                 </li>
-                <li class="">
-                  <a
-                    class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
+                <li className="">
+                  <Link
+                    className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    href="/settings"
                   >
-                    Two
-                  </a>
+                    Settings
+                  </Link>
                 </li>
-                <li class="">
-                  <a
-                    class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
+                <li className="">
+                  <Link
+                    className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                    href="/auth"
                   >
-                    Three is the magic number
-                  </a>
+                    Logout
+                  </Link>
                 </li>
               </ul>
             </div>
-            <Link href="/" className="hover:text-primary transition-all">
-              <FaUserAlt />
-            </Link>
             <Link href="/" className="hover:text-primary transition-all">
               <GiShoppingBag />
             </Link>
