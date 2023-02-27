@@ -3,9 +3,10 @@ import Link from "next/link";
 import Input from "@/components/form/Input";
 import { useFormik } from "formik";
 import { loginSchema } from "schema/loginSchema";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const handleLogin = async (actions) => {
+  const onSubmit = async (values, actions) => {
     await new Promise((res) => setTimeout(res, 1000));
     actions.resetForm();
   };
@@ -17,7 +18,7 @@ const Login = () => {
         password: "",
       },
       validationSchema: loginSchema,
-      handleLogin,
+      onSubmit,
     });
 
   const inputs = [
@@ -60,15 +61,16 @@ const Login = () => {
           ))}
         </div>
         <button
-          className="p-2 my-2 mt-4 bg-primary rounded-full hover:opacity-90"
-          onSubmit={handleLogin}
+          type="submit"
+          className="p-2 my-2 mt-4 bg-primary rounded-full hover:opacity-90 transition-all uppercase font-bold text-white"
         >
-          asd
+          login
         </button>
-        <button className="p-2 my-1 bg-alternative rounded-full hover:opacity-90 text-white">
-          dsa
+        <button className="p-2 my-1 bg-alternative rounded-full hover:opacity-90 transition-all text-white uppercase font-bold flex items-center justify-center gap-2">
+          <FaGithub className="text-2xl" />
+          github
         </button>
-        <Link href={""} className="mt-3">
+        <Link href={"/register"} className="mt-3">
           <span className="underline cursor-pointer">
             Don&apos;t you have an account? Sign up for free!
           </span>
