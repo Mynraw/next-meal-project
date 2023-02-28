@@ -70,7 +70,7 @@ const Login = () => {
           <FaGithub className="text-2xl" />
           github
         </button>
-        <Link href={"/register"} className="mt-3">
+        <Link href={"/auth/register"} className="mt-3">
           <span className="underline cursor-pointer">
             Don&apos;t you have an account? Sign up for free!
           </span>
