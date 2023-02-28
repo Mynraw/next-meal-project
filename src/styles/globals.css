@@ -94,7 +94,7 @@ body {
 }
 
 .slick-prev {
-  @apply top-[490px] sm:left-[42%] md:left-[44%]  lg:left-[45%] xl:left-[46%];
+  @apply top-[490px] sm:left-[42%] md:left-[44%] lg:left-[45%] xl:left-[46%];
 }
 
 .slick-next {

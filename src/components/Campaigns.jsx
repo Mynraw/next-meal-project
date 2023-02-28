@@ -9,7 +9,7 @@ const sizes = "(max-width: 768px) 100vw (max-width: 1200px) 50vw, 33vw";
 
 const CampaignItem = () => {
   return (
-    <div className="container my-20 grid grid-cols-2 gap-4 mx-auto">
+    <div className="container py-16 grid grid-cols-2 gap-4 mx-auto relative">
       <div className="col-span-2 md:col-span-1 flex sm:flex-row md:flex-col lg:flex-row items-center gap-3 justify-start bg-alternative p-5 rounded-sm w-full group">
         <div className="border-[3px] rounded-full border-primary p-0 m-0 w-[180px] h-[180px] relative overflow-hidden">
           <Image

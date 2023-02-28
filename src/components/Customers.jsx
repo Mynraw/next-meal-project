@@ -54,7 +54,7 @@ const Customers = () => {
   };
 
   return (
-    <div className="container w-full h-full mx-auto text-center py-16">
+    <div className="container w-full h-full mx-auto text-center py-16 mb-16">
       <Title addClass={"text-4xl"}>what our customers say</Title>
       <Slider {...settings}>
         {customers.map((customer) => {

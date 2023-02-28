@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Logo from "../ui/Logo";
 import Search from "../ui/Search";
@@ -13,20 +14,14 @@ const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
 
+  const router = useRouter();
+
   return (
-    <div className="min-h-screen relative">
-      <div className="absolute top-0 left-0 h-full w-full">
-        <Image
-          src="/images/hero-bg.jpg"
-          alt="hero bg"
-          quality={100}
-          fill
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-      </div>
+    <div
+      className={`h-[5.5rem] z-50 relative ${
+        router.asPath === "/home" ? "bg-transparent" : "bg-alternative"
+      }`}
+    >
       <header className="relative top-0 left-0 h-[5.5rem] w-full px-1">
         <div className="container mx-auto text-white flex justify-between items-center h-full">
           <Logo />
@@ -76,7 +71,7 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <Link href="/" className="hover:text-primary transition-all">
+            <Link href="/cart" className="hover:text-primary transition-all">
               <GiShoppingBag />
             </Link>
             <button

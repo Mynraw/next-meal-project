@@ -13,7 +13,7 @@ const Menu = () => {
   //   setLiActive((prevVal) => ({ ...prevVal, ...prop }));
   // };
   return (
-    <div className="container grid place-content-center mx-auto">
+    <div className="container grid place-content-center mx-auto py-16">
       <div>
         <h1 className="font-permaMarker text-alternative text-center text-5xl">
           our menu

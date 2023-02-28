@@ -18,8 +18,7 @@ export const registerSchema = Yup.object({
     .matches(/[A-Z]/, "Password requires an uppercase letter")
     .matches(/[^\w]/, "Password requires a symbol")
     .required("Password can't be empty."),
-  passwordMatch: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "Passwords doesn't match."
-  ),
+  passwordMatch: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords doesn't match.")
+    .required("Password can't be empty."),
 });
