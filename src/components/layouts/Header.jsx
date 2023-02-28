@@ -4,7 +4,6 @@ import Link from "next/link";
 import Logo from "../ui/Logo";
 import Search from "../ui/Search";
 import DropdownMenu from "../ui/DropdownMenu";
-import Image from "next/image";
 import { Squash as Hamburger } from "hamburger-react";
 import { FaUserAlt } from "react-icons/fa";
 import { GiShoppingBag } from "react-icons/gi";
