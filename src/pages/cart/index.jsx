@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const Cart = () => {
   return (
-    <div className="mx-auto xs:flex xs:items-center sm:grid grid-cols-7 bg-alternative py-16 w-full h-full">
-      <div className="sm:col-span-7 md:col-span-7 lg:col-span-5 grid place-items-center overflow-x-auto bg-secondary p-10">
-        <table className="bg-alternative text-gray-200 font-extralight w-full h-full">
+    <div className="mx-auto xs:flex sm:grid items-center grid-cols-7 bg-alternative overflow-y-auto py-36 w-full h-full">
+      <div className="sm:col-span-7 md:col-span-7 lg:col-span-5 max-h-[50vh] grid place-items-center overflow-x-auto bg-secondary p-10">
+        <table className="bg-[#354257] text-gray-200 font-extralight w-full">
           <thead>
             <tr className="uppercase border border-secondary">
               <th className="p-5">product</th>
@@ -15,7 +15,7 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="hover:bg-[#f9b420] text-center border border-secondary hover:text-black transition-none">
+            <tr className="bg-alternative hover:bg-[#f9b420] text-center border border-secondary hover:text-black transition-none">
               <td className="p-5">
                 <div className="relative w-auto h-auto flex justify-center items-center gap-2">
                   <Image
