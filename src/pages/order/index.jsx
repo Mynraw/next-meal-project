@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const index = () => {
+const Index = () => {
   return (
     <div className="w-full h-full mx-auto py-16">
       <div className="p-10">
@@ -52,4 +52,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
