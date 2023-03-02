@@ -1,7 +1,7 @@
 const Input = (props) => {
-  const { type, placeholder, errormessage, touched, ...rest } = props;
+  const { type, placeholder, errormessage, touched, addClass, ...rest } = props;
   return (
-    <div className="w-full">
+    <div className={`w-full ${addClass}`}>
       {props.type !== "select" && (
         <label className="relative block">
           <input
