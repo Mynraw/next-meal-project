@@ -22,4 +22,25 @@ export const accountInfoSchema = Yup.object({
     .min(8, "Please enter an valid address."),
   job: Yup.string(),
   bio: Yup.string(),
+  password: Yup.string()
+    .min(8, "Password must be at least 8 characters long")
+    .matches(/[0-9]/, "Password requires a number")
+    .matches(/[a-z]/, "Password requires a lowercase letter")
+    .matches(/[A-Z]/, "Password requires an uppercase letter")
+    .matches(/[^\w]/, "Password requires a symbol")
+    .required("Password can't be empty."),
+  passwordMatch: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords doesn't match.")
+    .required("Password can't be empty."),
+  currentPassword: Yup.string().required("Can't be empty."),
+  newPassword: Yup.string()
+    .min(8, "Password must be at least 8 characters long")
+    .matches(/[0-9]/, "Password requires a number")
+    .matches(/[a-z]/, "Password requires a lowercase letter")
+    .matches(/[A-Z]/, "Password requires an uppercase letter")
+    .matches(/[^\w]/, "Password requires a symbol")
+    .required("Password can't be empty."),
+  confirmNewPassword: Yup.string()
+    .oneOf([Yup.ref("newPassword"), null], "Passwords doesn't match.")
+    .required("Password can't be empty."),
 });
