@@ -2,6 +2,7 @@ import { useState } from "react";
 import Products from "./Products";
 import Orders from "./Orders";
 import Categories from "./Categories";
+import Footer from "./Footer";
 import Image from "next/image";
 import Title from "@/components/ui/Title";
 import { RiEBike2Fill, RiLayoutBottomLine } from "react-icons/ri";
@@ -108,6 +109,7 @@ const Index = () => {
           {menuTab === 0 && <Products />}
           {menuTab === 1 && <Orders />}
           {menuTab === 2 && <Categories />}
+          {menuTab === 3 && <Footer />}
         </div>
       </div>
     </div>

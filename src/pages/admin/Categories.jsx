@@ -2,7 +2,7 @@ import { useState } from "react";
 import Input from "@/components/form/Input";
 
 const Categories = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("input");
   // initial categories
   const [categories, setCategories] = useState([
     {
@@ -38,13 +38,13 @@ const Categories = () => {
           type="text"
           placeholder="add a new category"
           onChange={(e) => handleInput(e)}
-          value={input}
+          value={input === "input" ? "" : input}
         />
         <button className="btn-primary capitalize" onClick={addCategories}>
           add
         </button>
       </div>
-      <div className="border border-primary mt-5 w-full rounded-xl p-3 h-72 overflow-auto">
+      <div className="border border-primary mt-5 w-full rounded-xl p-3 max-h-72 overflow-auto">
         {categories.map((category) => (
           <div
             className="flex justify-between items-center my-3"
