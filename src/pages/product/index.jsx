@@ -8,7 +8,7 @@ const style = {
 const Index = () => {
   return (
     <div className="grid place-items-center">
-      <div className="container h-screen w-screen grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-x-28">
+      <div className="container h-screen w-screen grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-x-28 mt-28 md:mt-0">
         <div className="relative h-[100%] w-[100%]">
           <Image src="/images/f1.png" alt="piz" fill style={style} />
         </div>
