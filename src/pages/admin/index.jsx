@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Products from "./Products";
+import Orders from "./Orders";
 import Image from "next/image";
 import Title from "@/components/ui/Title";
 import { RiEBike2Fill, RiLayoutBottomLine } from "react-icons/ri";
@@ -104,7 +105,7 @@ const Index = () => {
         <div className="col-span-5 md:col-span-4 h-full">
           <Title addClass={"text-4xl text-left"}>{tabTitle}</Title>
           {menuTab === 0 && <Products />}
-          {menuTab === 1 && <></>}
+          {menuTab === 1 && <Orders />}
           {menuTab === 2 && <></>}
         </div>
       </div>

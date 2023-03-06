@@ -1,0 +1,58 @@
+export const adminOrders = [
+  {
+    productId: 6547987,
+    customerId: 73,
+    total: 24,
+    payment: 3,
+    status: 4,
+  },
+  {
+    productId: 6547545,
+    customerId: 15,
+    total: 18,
+    payment: 3,
+    status: 4,
+  },
+  {
+    productId: 6547987,
+    customerId: 73,
+    total: 24,
+    payment: 3,
+    status: 4,
+  },
+  {
+    productId: 6547987,
+    customerId: 73,
+    total: 24,
+    payment: 3,
+    status: 0,
+  },
+  {
+    productId: 6547987,
+    customerId: 73,
+    total: 24,
+    payment: 3,
+    status: 2,
+  },
+  {
+    productId: 6547987,
+    customerId: 73,
+    total: 24,
+    payment: 3,
+    status: 3,
+  },
+  {
+    productId: 6547987,
+    customerId: 73,
+    total: 24,
+    payment: 3,
+    status: 4,
+  },
+  {
+    productId: 6547987,
+    customerId: 73,
+    total: 24,
+    payment: 3,
+    status: 4,
+  },
+];
