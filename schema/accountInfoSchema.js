@@ -43,4 +43,9 @@ export const accountInfoSchema = Yup.object({
   confirmNewPassword: Yup.string()
     .oneOf([Yup.ref("newPassword"), null], "Passwords doesn't match.")
     .required("Password can't be empty."),
+  location: Yup.string().required("Can't be empty"),
+  description: Yup.string().required("Can't be empty"),
+  availableDays: Yup.string().required("Can't be empty"),
+  openingHours: Yup.string().required("Can't be empty"),
+  link: Yup.string().required("Can't be empty"),
 });
