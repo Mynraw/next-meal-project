@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "eslint": "8.33.0",
     "formik": "^2.2.9",
     "hamburger-react": "^2.5.0",
