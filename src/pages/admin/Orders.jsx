@@ -3,7 +3,7 @@ import { adminOrders } from "@/data/adminOrders";
 const Orders = () => {
   return (
     <div className="my-10">
-      <div className="overflow-x-auto max-h-80 shadow-xl">
+      <div className="overflow-x-auto max-h-72 shadow-xl">
         <table className="bg-alternative text-gray-400 rounded-t-lg font-extralight w-full text-center">
           <thead className="bg-[#354257] rounded-lg">
             <tr className="uppercase font-medium rounded-lg">
@@ -16,9 +16,9 @@ const Orders = () => {
             </tr>
           </thead>
           <tbody>
-            {adminOrders.map((order) => (
+            {adminOrders.map((order, index) => (
               <tr
-                key={order.productId}
+                key={index}
                 className="hover:bg-[#f9b420] hover:text-white transition-all text-center border-b"
               >
                 <td className="p-3 whitespace-nowrap border-gray-400">

@@ -25,8 +25,8 @@ const Products = () => {
                   <div className="relative">
                     <Image
                       src={`/images/f${meal.mealId}.png`}
-                      width={50}
-                      height={50}
+                      width={45}
+                      height={45}
                       alt={meal.title}
                     />
                   </div>
