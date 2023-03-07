@@ -55,7 +55,7 @@ const Index = () => {
                 id="test"
                 type={"checkbox"}
               />
-              <label className="mr-3" for="test">
+              <label className="mr-3" htmlFor="test">
                 ketchup
               </label>
               <input
@@ -63,7 +63,7 @@ const Index = () => {
                 id="test2"
                 type={"checkbox"}
               />
-              <label className="mr-3" for="test2">
+              <label className="mr-3" htmlFor="test2">
                 test
               </label>
               <input
@@ -71,7 +71,7 @@ const Index = () => {
                 id="test3"
                 type={"checkbox"}
               />
-              <label for={"test3"}>test</label>
+              <label htmlFor={"test3"}>test</label>
             </div>
           </div>
           <button className="btn-primary max-w-[150px]">Add to cart</button>
