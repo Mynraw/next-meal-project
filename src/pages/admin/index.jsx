@@ -11,7 +11,7 @@ import { BiCategory } from "react-icons/bi";
 
 const Index = () => {
   const [menuTab, setMenuTab] = useState(0);
-  const [tabTitle, setTabTitle] = useState("account settings");
+  const [tabTitle, setTabTitle] = useState("products");
 
   const handleTabs = (tab) => {
     setMenuTab(tab);
