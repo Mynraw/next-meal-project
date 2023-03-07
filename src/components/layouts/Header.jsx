@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 import Link from "next/link";
 import Logo from "../ui/Logo";
 import Search from "../ui/Search";
@@ -12,6 +13,8 @@ import { BsSearch } from "react-icons/bs";
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
+
+  const cart = useSelector((state) => state.cart);
 
   const router = useRouter();
 
@@ -70,8 +73,9 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <Link href="/cart" className="hover:text-primary transition-all">
+            <Link href="/cart" className="hover:text-primary transition-all relative">
               <GiShoppingBag />
+              <span className="absolute bottom-1.5 left-2 px-1.5 text-xs text-black bg-[#f9b420] rounded-lg">{cart['quantity']}</span>
             </Link>
             <button
               onClick={() => {

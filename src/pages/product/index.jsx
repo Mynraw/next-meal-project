@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { addProduct } from "@/redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import Title from "@/components/ui/Title";
 
@@ -24,11 +26,29 @@ const extras = [
   },
 ];
 
+const dummyMeal = [{
+  id: 1,
+  name: "SJWPizza",
+  price: 10,
+  desc: "Karen's finest.",
+  extras: [
+    {
+      id: 1,
+      name: "SJWSauce",
+      price: 3,
+    }]
+}]
+
 const Index = () => {
   const [prices, setPrices] = useState([10, 20, 30]);
   const [totalPrice, setTotalPrice] = useState(prices[0]);
   const [mealSize, setMealSize] = useState(0);
   const [ingredients, setIngredients] = useState(extras);
+
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  console.log(cart);
 
   const handleProductSize = (size) => {
     const priceDiffer = prices[size] - prices[mealSize];
@@ -43,6 +63,10 @@ const Index = () => {
       ? setTotalPrice((prevTotal) => (prevTotal += item.price))
       : setTotalPrice((prevTotal) => (prevTotal -= item.price));
   };
+
+  const handleAddToCart = () => {
+  dispatch(addProduct({...dummyMeal[0], ingredients, totalPrice, quantity: 1}))
+  }
 
   return (
     <div className="grid place-items-center">
@@ -106,7 +130,7 @@ const Index = () => {
               ))}
             </div>
           </div>
-          <button className="btn-primary max-w-[150px]">Add to cart</button>
+          <button className="btn-primary max-w-[150px]" onClick={handleAddToCart}>Add to cart</button>
         </div>
       </div>
     </div>
