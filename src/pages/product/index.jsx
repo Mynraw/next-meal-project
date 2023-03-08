@@ -31,12 +31,7 @@ const dummyMeal = [{
   name: "SJWPizza",
   price: 10,
   desc: "Karen's finest.",
-  extras: [
-    {
-      id: 1,
-      name: "SJWSauce",
-      price: 3,
-    }]
+  extras: extras,
 }]
 
 const Index = () => {
@@ -44,6 +39,7 @@ const Index = () => {
   const [totalPrice, setTotalPrice] = useState(prices[0]);
   const [mealSize, setMealSize] = useState(0);
   const [ingredients, setIngredients] = useState(extras);
+  const [additions, setAdditions] = useState([]);
 
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -59,13 +55,17 @@ const Index = () => {
   const handleIngredients = (extra, item) => {
     const isChecked = extra.target.checked;
 
-    isChecked
-      ? setTotalPrice((prevTotal) => (prevTotal += item.price))
-      : setTotalPrice((prevTotal) => (prevTotal -= item.price));
+    if (isChecked) {
+      setTotalPrice((prevTotal) => (prevTotal += item.price));
+      setAdditions([...additions, item]);
+    } else {
+      setTotalPrice((prevTotal) => (prevTotal -= item.price));
+      setAdditions(additions.filter((addition) => addition.id !== item.id))
+    }
   };
 
   const handleAddToCart = () => {
-  dispatch(addProduct({...dummyMeal[0], ingredients, totalPrice, quantity: 1}))
+  dispatch(addProduct({...dummyMeal[0], additions, totalPrice, quantity: 1}))
   }
 
   return (

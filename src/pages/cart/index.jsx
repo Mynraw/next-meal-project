@@ -19,9 +19,9 @@ const Cart = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {cart['products'].map((meal) => (
+                    {cart['products'].map((meal, index) => (
                         <tr className="bg-alternative hover:bg-[#f9b420] text-center border border-secondary hover:text-black transition-none"
-                            key={meal.id}>
+                            key={index}>
                             <td className="p-5">
                                 <div className="relative w-auto h-auto flex justify-center items-center gap-2">
                                     <Image
@@ -33,8 +33,8 @@ const Cart = () => {
                                     <span className="capitalize">{meal.name}</span>
                                 </div>
                             </td>
-                            <td className="p-5">{meal.extras.map((extra) => extra.name)}</td>
-                            <td className="p-5">${meal.price}</td>
+                            <td className="p-5">{meal.additions.map((addition) => (<span key={addition.id}>{addition.name} </span>))}</td>
+                            <td className="p-5">${meal.totalPrice}</td>
                             <td className="p-5">{meal.quantity}</td>
                         </tr>))}
 
@@ -46,13 +46,13 @@ const Cart = () => {
                 <Title addClass={"text-5xl"}>cart total</Title>
                 <div className="capitalize">
                     <p>
-                        subtotal: <span>$20</span>
+                        subtotal: <span>${cart['total']}</span>
                     </p>
                     <p>
                         discount: <span>$0.00</span>
                     </p>
                     <p>
-                        total: <span>$20</span>
+                        total: <span>${cart['total']}</span>
                     </p>
                 </div>
                 <button className="btn-primary uppercase">checkout now!</button>
