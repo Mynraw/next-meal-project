@@ -1,9 +1,15 @@
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {reset} from "@/redux/cartSlice";
 import Title from "@/components/ui/Title";
 import Image from "next/image";
 
 const Cart = () => {
     const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    const handleReset = () => {
+        dispatch(reset());
+    }
     return (
         <div
             className="mx-auto xs:flex sm:grid items-center grid-cols-7 bg-alternative overflow-y-auto py-36 w-full h-full">
@@ -55,7 +61,7 @@ const Cart = () => {
                         total: <span>${cart['total']}</span>
                     </p>
                 </div>
-                <button className="btn-primary uppercase">checkout now!</button>
+                <button onClick={handleReset} className="btn-primary uppercase">checkout now!</button>
             </div>
         </div>
     );

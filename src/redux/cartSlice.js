@@ -9,9 +9,14 @@ const cartSlice = createSlice({
             state.products.push(action.payload);
             state.quantity += 1;
             state.total += action.payload.totalPrice;
+        },
+        reset: (state, action) => {
+            state.products = [];
+            state.quantity = 0;
+            state.total = 0;
         }
     }
 });
 
-export const { addProduct } = cartSlice.actions;
+export const { addProduct, reset } = cartSlice.actions;
 export default cartSlice.reducer;
