@@ -44,7 +44,7 @@ const Index = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  console.log(cart);
+  // console.log(cart);
 
   const handleProductSize = (size) => {
     const priceDiffer = prices[size] - prices[mealSize];
