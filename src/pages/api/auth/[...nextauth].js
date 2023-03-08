@@ -4,7 +4,6 @@ import GoogleProvider from "next-auth/providers/google";
 import TwitterProvider from "next-auth/providers/twitter";
 
 export const authOptions = {
-  // Configure one or more authentication providers
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID,
@@ -18,8 +17,9 @@ export const authOptions = {
       clientId: process.env.TWITTER_ID,
       clientSecret: process.env.TWITTER_SECRET,
     }),
-    // ...add more providers here
-    // TODO: Add Google provider
   ],
+  pages: {
+    signIn: "auth/login",
+  },
 };
 export default NextAuth(authOptions);

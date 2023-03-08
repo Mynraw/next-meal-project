@@ -1,3 +1,4 @@
+import { useSession, signIn } from "next-auth/react";
 import Title from "@/components/ui/Title";
 import Link from "next/link";
 import Input from "@/components/form/Input";
@@ -6,6 +7,9 @@ import { loginSchema } from "schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
+  const data = useSession();
+  // TODO: Make arrangements from here.
+  // https://next-auth.js.org/getting-started/example
   const onSubmit = async (values, actions) => {
     await new Promise((res) => setTimeout(res, 1000));
     actions.resetForm();
@@ -66,7 +70,10 @@ const Login = () => {
         >
           login
         </button>
-        <button className="p-2 my-1 bg-alternative rounded-full hover:opacity-90 transition-all text-white uppercase font-bold flex items-center justify-center gap-2">
+        <button
+          type="button"
+          className="p-2 my-1 bg-alternative rounded-full hover:opacity-90 transition-all text-white uppercase font-bold flex items-center justify-center gap-2"
+        >
           <FaGithub className="text-2xl" />
           github
         </button>
