@@ -1,21 +1,31 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import { registerSchema } from "schema/registerSchema";
+import { toast } from "react-toastify";
 import Title from "@/components/ui/Title";
 import Input from "@/components/form/Input";
 
 const Register = () => {
   const onSubmit = async (values, actions) => {
     try {
-      const { res } = await axios.post(
+      const res = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
         values
       );
+      console.log(res);
+      if (res.status === 200) {
+        toast(`Signed successfully!`, { theme: "dark" });
+      }
     } catch (error) {
       console.log(error);
+      toast.error(`${error.response.data.message}`, {
+        theme: "dark",
+      });
     }
     // actions.resetForm();
   };
+
+  const notify = () => toast("Test AMQ");
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
