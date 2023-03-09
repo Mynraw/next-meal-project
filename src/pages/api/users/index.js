@@ -17,7 +17,7 @@ const handler = async (req, res) => {
   }
 
   // create user
-  if (method == "POST") {
+  if (method === "POST") {
     try {
       const newUser = await User.create(req.body);
       res.status(200).json(newUser);
