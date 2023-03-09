@@ -2,24 +2,24 @@ const Input = (props) => {
   const { type, placeholder, errormessage, touched, addClass, ...rest } = props;
   return (
     <div className={`w-full ${addClass}`}>
-      {props.type !== "select" && (
+      {type !== "select" && (
         <label className="relative block">
           <input
-            type={props.type}
+            type={type}
             className={`w-full h-14 p-4 outline-none border-[1.5px] rounded-md border-[1.5px]rounded-md peer
               ${errormessage && touched ? "border-red-500" : "border-primary"}`}
             required
             {...rest}
           />
           <span className="absolute left-3 top-3.5 text-lg opacity-50 capitalize transition-all peer-focus:top-0.5 peer-focus:left-4 peer-focus:text-sm peer-focus:transition-all peer-valid:top-0.5 peer-valid:left-4 peer-valid:text-sm peer-valid:transition-all">
-            {props.placeholder}
+            {placeholder}
           </span>
           {errormessage && touched ? (
             <span className="text-red-500 font-light">{errormessage}</span>
           ) : null}
         </label>
       )}
-      {props.type === "select" && (
+      {type === "select" && (
         <label className="relative block">
           <select
             className={`w-full select-arrow h-14 p-4 outline-none border-[1.5px] rounded-md border-[1.5px]rounded-md peer
