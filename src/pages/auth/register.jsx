@@ -86,11 +86,17 @@ const Register = () => {
             />
           ))}
         </div>
-        <input
+        <button
+          type="submit"
+          className="cursor-pointer p-2 my-2 mt-4 bg-primary rounded-full hover:opacity-90 transition-all uppercase font-bold text-white"
+        >
+          register
+        </button>
+        {/* <input
           type="submit"
           value="register"
           className="cursor-pointer p-2 my-2 mt-4 bg-primary rounded-full hover:opacity-90 transition-all uppercase font-bold text-white"
-        />
+        /> */}
       </form>
     </div>
   );
