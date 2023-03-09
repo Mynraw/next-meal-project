@@ -1,24 +1,32 @@
-import Title from "@/components/ui/Title";
-import Input from "@/components/form/Input";
+import axios from "axios";
 import { useFormik } from "formik";
 import { registerSchema } from "schema/registerSchema";
+import Title from "@/components/ui/Title";
+import Input from "@/components/form/Input";
 
 const Register = () => {
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    actions.resetForm();
+    try {
+      const { res } = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
+        values
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    // actions.resetForm();
   };
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
         fullName: "",
-        eMail: "",
+        email: "",
         password: "",
-        passwordMatch: "",
+        passwordConfirm: "",
       },
-      validationSchema: registerSchema,
       onSubmit,
+      validationSchema: registerSchema,
     });
 
   const inputs = [
@@ -33,12 +41,12 @@ const Register = () => {
     },
     {
       id: 2,
-      name: "eMail",
+      name: "email",
       placeholder: "your e-mail address",
       type: "email",
-      value: values.eMail,
-      errormessage: errors.eMail,
-      touched: touched.eMail,
+      value: values.email,
+      errormessage: errors.email,
+      touched: touched.email,
     },
     {
       id: 3,
@@ -51,12 +59,12 @@ const Register = () => {
     },
     {
       id: 4,
-      name: "passwordMatch",
+      name: "passwordConfirm",
       placeholder: "confirm your password",
       type: "password",
-      value: values.passwordMatch,
-      errormessage: errors.passwordMatch,
-      touched: touched.passwordMatch,
+      value: values.passwordConfirm,
+      errormessage: errors.passwordConfirm,
+      touched: touched.passwordConfirm,
     },
   ];
 
@@ -71,19 +79,18 @@ const Register = () => {
           {inputs.map((input) => (
             <Input
               key={input.id}
-              {...input}
               onChange={handleChange}
               onBlur={handleBlur}
-              value={input.value}
+              {...input}
+              // value={input.value}
             />
           ))}
         </div>
-        <button
+        <input
           type="submit"
-          className="p-2 my-2 mt-4 bg-primary rounded-full hover:opacity-90 transition-all uppercase font-bold text-white"
-        >
-          sign up
-        </button>
+          value="register"
+          className="cursor-pointer p-2 my-2 mt-4 bg-primary rounded-full hover:opacity-90 transition-all uppercase font-bold text-white"
+        />
       </form>
     </div>
   );
