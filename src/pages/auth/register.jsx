@@ -4,6 +4,7 @@ import { registerSchema } from "schema/registerSchema";
 import { toast } from "react-toastify";
 import Title from "@/components/ui/Title";
 import Input from "@/components/form/Input";
+import Link from "next/link";
 
 const Register = () => {
   const onSubmit = async (values, actions) => {
@@ -102,11 +103,11 @@ const Register = () => {
         >
           register
         </button>
-        {/* <input
-          type="submit"
-          value="register"
-          className="cursor-pointer p-2 my-2 mt-4 bg-primary rounded-full hover:opacity-90 transition-all uppercase font-bold text-white"
-        /> */}
+        <Link href={"/auth/login"} className="mt-3">
+          <span className="underline cursor-pointer">
+            Already have an account? Sign in from here
+          </span>
+        </Link>
       </form>
     </div>
   );
