@@ -1,4 +1,4 @@
-import { getSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Title from "@/components/ui/Title";
 import Link from "next/link";
 import Input from "@/components/form/Input";
@@ -7,8 +7,6 @@ import { loginSchema } from "schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { data: session } = getSession();
-
   const onSubmit = async (values, actions) => {
     await new Promise((res) => setTimeout(res, 1000));
     actions.resetForm();
