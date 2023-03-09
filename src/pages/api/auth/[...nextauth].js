@@ -2,6 +2,8 @@ import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import TwitterProvider from "next-auth/providers/twitter";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import clientPromise from "../../../lib/mongodb";
 
 export const authOptions = {
   providers: [
@@ -21,5 +23,6 @@ export const authOptions = {
   pages: {
     signIn: "auth/login",
   },
+  adapter: MongoDBAdapter(clientPromise),
 };
 export default NextAuth(authOptions);
