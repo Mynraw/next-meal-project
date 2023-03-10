@@ -1,21 +1,33 @@
-import { signIn } from "next-auth/react";
 import Title from "@/components/ui/Title";
 import Link from "next/link";
 import Input from "@/components/form/Input";
 import { useFormik } from "formik";
 import { loginSchema } from "schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
+import { signIn, useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { data: session } = useSession();
   const onSubmit = async (values, actions) => {
-    await new Promise((res) => setTimeout(res, 1000));
-    actions.resetForm();
+    const { email, password } = values;
+    let options = { redirect: false, email, password };
+    const res = await signIn("credentials", options);
+    if (res.status === 200) {
+      toast("Login is successful! You will be redirected shortly.", {
+        theme: "dark",
+      });
+      actions.resetForm();
+    }
+    if (res.status === 401) {
+      toast.error("Your password is not correct.", { theme: "dark" });
+    }
   };
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
-        username: "",
+        email: "",
         password: "",
       },
       validationSchema: loginSchema,
@@ -25,12 +37,12 @@ const Login = () => {
   const inputs = [
     {
       id: 1,
-      name: "username",
-      type: "text",
-      placeholder: "your username/e-mail",
-      value: values.username,
-      errormessage: errors.username,
-      touched: touched.username,
+      name: "email",
+      type: "email",
+      placeholder: "your e-mail",
+      value: values.email,
+      errormessage: errors.email,
+      touched: touched.email,
     },
     {
       id: 2,
