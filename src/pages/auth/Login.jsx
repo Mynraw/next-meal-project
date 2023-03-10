@@ -6,8 +6,10 @@ import { loginSchema } from "schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const { push } = useRouter();
   const { data: session } = useSession();
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
@@ -18,9 +20,9 @@ const Login = () => {
         theme: "dark",
       });
       actions.resetForm();
-    }
-    if (res.status === 401) {
-      toast.error("Your password is not correct.", { theme: "dark" });
+      push("/home");
+    } else if (res.status === 401) {
+      toast.error("Your email or password is not correct.", { theme: "dark" });
     }
   };
 
