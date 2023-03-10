@@ -88,4 +88,21 @@ const Login = () => {
   );
 };
 
+// admin page should only be fetched at runtime.
+export const getServerSideProps = (ctx) => {
+  const fooCookie = ctx.req?.cookies || "";
+  if (fooCookie.token === process.env.ADMIN_TOKEN) {
+    return {
+      redirect: {
+        destination: "/admin/profile",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
+
 export default Login;

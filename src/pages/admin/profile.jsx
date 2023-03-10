@@ -116,4 +116,21 @@ const Index = () => {
   );
 };
 
+// admin page should only be fetched at runtime.
+export const getServerSideProps = (ctx) => {
+  const fooCookie = ctx.req?.cookies || "";
+  if (fooCookie.token !== process.env.ADMIN_TOKEN) {
+    return {
+      redirect: {
+        destination: "/admin",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
+
 export default Index;

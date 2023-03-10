@@ -1,12 +1,12 @@
 import Title from "@/components/ui/Title";
 import Link from "next/link";
 import Input from "@/components/form/Input";
+import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import { loginSchema } from "schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
 import { signIn, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
-import { useRouter } from "next/router";
 
 const Login = () => {
   const { push } = useRouter();
