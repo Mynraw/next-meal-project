@@ -23,6 +23,17 @@ const handler = (req, res) => {
       res.status(400).json({ message: "Credentials are invalid." });
     }
   }
+
+  if (method === "PUT") {
+    res.setHeader(
+      "Set-Cookie",
+      cookie.serialize("token", process.env.ADMIN_TOKEN, {
+        maxAge: -1,
+        path: "/",
+      })
+    );
+    res.status(200).json({ message: "Success" });
+  }
 };
 
 export default handler;

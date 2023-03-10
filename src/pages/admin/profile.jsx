@@ -8,10 +8,29 @@ import Title from "@/components/ui/Title";
 import { RiEBike2Fill, RiLayoutBottomLine } from "react-icons/ri";
 import { MdLogout, MdOutlineFastfood } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Index = () => {
   const [menuTab, setMenuTab] = useState(0);
   const [tabTitle, setTabTitle] = useState("products");
+  const { push } = useRouter();
+
+  const handleAdminSignOut = async () => {
+    try {
+      if (confirm("Are you sure you want to logout?")) {
+        const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`);
+        console.log(res);
+        if (res.status === 200) {
+          push("/admin");
+          toast("Successfully logged out!", { theme: "dark" });
+        }
+      }
+    } catch (error) {
+      toast.error("Something went wrong", { theme: "dark" });
+    }
+  };
 
   const handleTabs = (tab) => {
     setMenuTab(tab);
@@ -97,6 +116,8 @@ const Index = () => {
               <span className="capitalize">footer</span>
             </button>
             <button
+              type="button"
+              onClick={handleAdminSignOut}
               className={`account flex items-center gap-2 py-3 px-2 w-full border-t border-gray-300 hover:bg-[#f9b420] hover:text-white transition-all`}
             >
               <MdLogout />
@@ -116,7 +137,7 @@ const Index = () => {
   );
 };
 
-// admin page should only be fetched at runtime.
+// there should be no access to admin profile unless having the token.
 export const getServerSideProps = (ctx) => {
   const fooCookie = ctx.req?.cookies || "";
   if (fooCookie.token !== process.env.ADMIN_TOKEN) {
