@@ -1,11 +1,12 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import Title from "@/components/ui/Title";
 import Link from "next/link";
 import Input from "@/components/form/Input";
-import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import { loginSchema } from "schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, useSession, getSession } from "next-auth/react";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -19,8 +20,8 @@ const Login = () => {
       toast("Login is successful! You will be redirected shortly.", {
         theme: "dark",
       });
-      actions.resetForm();
       push("/home");
+      actions.resetForm();
     } else if (res.status === 401) {
       toast.error("Your email or password is not correct.", { theme: "dark" });
     }
@@ -97,6 +98,23 @@ const Login = () => {
       </form>
     </div>
   );
+};
+
+export const getServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/home",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default Login;

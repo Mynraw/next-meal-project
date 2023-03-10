@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import axios from "axios";
 import Products from "./Products";
 import Orders from "./Orders";
 import Categories from "./Categories";
@@ -8,9 +11,6 @@ import Title from "@/components/ui/Title";
 import { RiEBike2Fill, RiLayoutBottomLine } from "react-icons/ri";
 import { MdLogout, MdOutlineFastfood } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
-import { useRouter } from "next/router";
-import { toast } from "react-toastify";
-import axios from "axios";
 
 const Index = () => {
   const [menuTab, setMenuTab] = useState(0);

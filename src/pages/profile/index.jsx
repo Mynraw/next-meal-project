@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { signOut, useSession, getSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 import Account from "./Account";
 import Password from "./Password";
 import Orders from "./Orders";
@@ -12,6 +15,16 @@ import { MdLogout } from "react-icons/md";
 const Index = () => {
   const [menuTab, setMenuTab] = useState(0);
   const [tabTitle, setTabTitle] = useState("account settings");
+  const { push } = useRouter();
+
+  const handleLogOut = () => {
+    if (confirm("You really want to logout?")) {
+      // without redirect indication push wouldn't work.
+      signOut({ redirect: false });
+      toast("Successfully logged out.", { theme: "dark" });
+      push("/home");
+    }
+  };
 
   const handleTabs = (tab) => {
     setMenuTab(tab);
@@ -84,13 +97,11 @@ const Index = () => {
               <span className="capitalize">orders</span>
             </button>
             <button
-              onClick={() => handleTabs(3)}
-              className={`account flex items-center gap-2 py-3 px-2 w-full border-t border-gray-300 hover:bg-[#f9b420] hover:text-white transition-all ${
-                menuTab === 3 && "bg-[#f9b420] text-white"
-              }`}
+              onClick={handleLogOut}
+              className={`account flex items-center gap-2 py-3 px-2 w-full border-t border-gray-300 hover:bg-[#f9b420] hover:text-white transition-all`}
             >
               <MdLogout />
-              <span className="capitalize">MdLogout</span>
+              <span className="capitalize">Logout</span>
             </button>
           </div>
         </div>
@@ -103,6 +114,23 @@ const Index = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/auth/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default Index;
