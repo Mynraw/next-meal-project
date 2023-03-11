@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { signOut, useSession, getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
@@ -12,7 +13,7 @@ import { HiKey } from "react-icons/hi";
 import { RiEBike2Fill } from "react-icons/ri";
 import { MdLogout } from "react-icons/md";
 
-const Index = () => {
+const Index = ({ user }) => {
   const [menuTab, setMenuTab] = useState(0);
   const [tabTitle, setTabTitle] = useState("account settings");
   const { push } = useRouter();
@@ -66,7 +67,7 @@ const Index = () => {
             />
           </div>
           <div className="mx-auto">
-            <span className="text-2xl font-bold">John Doe</span>
+            <span className="text-2xl font-bold">{user.fullName}</span>
           </div>
           <div className="text-black">
             <button
@@ -116,7 +117,7 @@ const Index = () => {
   );
 };
 
-export const getServerSideProps = async ({ req }) => {
+export const getServerSideProps = async ({ req, params }) => {
   const session = await getSession({ req });
 
   if (!session) {
@@ -128,8 +129,15 @@ export const getServerSideProps = async ({ req }) => {
     };
   }
 
+  const user = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`
+  );
+
   return {
-    props: {},
+    props: {
+      session,
+      user: user ? user.data : null,
+    },
   };
 };
 

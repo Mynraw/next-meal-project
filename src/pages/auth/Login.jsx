@@ -1,17 +1,20 @@
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { signIn, useSession, getSession } from "next-auth/react";
+import axios from "axios";
 import Title from "@/components/ui/Title";
 import Link from "next/link";
 import Input from "@/components/form/Input";
 import { useFormik } from "formik";
 import { loginSchema } from "schema/loginSchema";
 import { FaGithub } from "react-icons/fa";
-import { signIn, useSession, getSession } from "next-auth/react";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const { push } = useRouter();
   const { data: session } = useSession();
+  const [currentUser, setCurrentUser] = useState();
+
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
     let options = { redirect: false, email, password };
@@ -20,12 +23,26 @@ const Login = () => {
       toast("Login is successful! You will be redirected shortly.", {
         theme: "dark",
       });
-      push("/home");
       actions.resetForm();
     } else if (res.status === 401) {
       toast.error("Your email or password is not correct.", { theme: "dark" });
     }
   };
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        setCurrentUser(
+          res.data?.find((user) => user.email === session?.user?.email)
+        );
+        push("/profile/" + currentUser?._id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUser();
+  }, [session, currentUser]);
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
@@ -103,10 +120,13 @@ const Login = () => {
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
 
-  if (session) {
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+  const user = res.data?.find((user) => user.email === session?.user.email);
+
+  if (session && user) {
     return {
       redirect: {
-        destination: "/home",
+        destination: "/profile/" + user._id,
         permanent: false,
       },
     };
