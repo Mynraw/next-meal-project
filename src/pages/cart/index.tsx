@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from "react-redux";
-import { reset } from "../../redux/store"
+import { reset } from "../../redux/cartSlice"
 import Title from "../../components/ui/Title";
 import Image from "next/image";
 
@@ -8,7 +8,7 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const handleReset = () => {
-        dispatch(reset());
+        dispatch(reset({}));
     }
     return (
         <div

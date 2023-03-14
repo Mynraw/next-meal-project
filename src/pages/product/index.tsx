@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { addProduct } from "../../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import Title from "../../components/ui/Title";
 
-const style = {
+const style: CSSProperties = {
   objectFit: "contain",
 };
 
@@ -41,18 +41,18 @@ const Index = () => {
   const [ingredients, setIngredients] = useState(extras);
   const [additions, setAdditions] = useState([]);
 
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
 
   // console.log(cart);
 
-  const handleProductSize = (size) => {
+  const handleProductSize = (size: number) => {
     const priceDiffer = prices[size] - prices[mealSize];
     setMealSize(size);
     setTotalPrice((prevTotal) => (prevTotal += priceDiffer));
   };
 
-  const handleIngredients = (extra, item) => {
+  const handleIngredients = (extra: any, item: any) => {
     const isChecked = extra.target.checked;
 
     if (isChecked) {
@@ -119,11 +119,11 @@ const Index = () => {
                 >
                   <input
                     className="w-5 h-5 accent-primary"
-                    id={ingredient.id}
+                    id={(ingredient.id).toString()}
                     type={"checkbox"}
                     onChange={(e) => handleIngredients(e, ingredient)}
                   />
-                  <label className="mr-3" htmlFor={ingredient.id}>
+                  <label className="mr-3" htmlFor={(ingredient.id).toString()}>
                     {ingredient.name}
                   </label>
                 </div>

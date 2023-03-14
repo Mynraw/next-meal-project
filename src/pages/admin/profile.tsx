@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -32,7 +32,7 @@ const Index = () => {
     }
   };
 
-  const handleTabs = (tab) => {
+  const handleTabs = (tab: number) => {
     setMenuTab(tab);
     switch (tab) {
       case 0:
@@ -52,7 +52,7 @@ const Index = () => {
     }
   };
 
-  const style = {
+  const style: CSSProperties = {
     borderRadius: "50%",
     objectFit: "cover",
     padding: "5px",
