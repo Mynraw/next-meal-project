@@ -1,6 +1,6 @@
 import { useReducer } from "react";
-import Input from "@/components/form/Input";
-import { crudReducer } from "@/store/crudReducer";
+import Input from "../../components/form/Input";
+import { crudReducer } from "../../store/crudReducer"
 
 let nextProductId = 4;
 const initialProducts = [
@@ -33,7 +33,7 @@ const Categories = () => {
     productName.value = "";
   };
 
-  const handleDeleteProduct = (productId) => {
+  const handleDeleteProduct = (productId: number) => {
     dispatch({
       type: "deleted",
       id: productId,

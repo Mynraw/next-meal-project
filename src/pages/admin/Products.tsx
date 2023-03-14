@@ -1,4 +1,4 @@
-import { meals } from "@/data/meals";
+import { meals } from "../../data/meals";
 import Image from "next/image";
 
 const Products = () => {

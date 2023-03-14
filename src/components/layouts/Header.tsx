@@ -14,7 +14,7 @@ const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isDropdownMenu, setIsDropdownMenu] = useState(false);
 
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: any) => state.cart);
 
   const router = useRouter();
 
@@ -108,8 +108,7 @@ const Header = () => {
         {isSearchModal && <Search setIsSearchModal={setIsSearchModal} />}
         <DropdownMenu
           isDropdownMenu={isDropdownMenu}
-          setIsDropdownMenu={setIsDropdownMenu}
-        />
+          setIsDropdownMenu={setIsDropdownMenu} setOpen={undefined}        />
       </header>
     </div>
   );

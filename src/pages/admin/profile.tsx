@@ -7,7 +7,7 @@ import Orders from "./Orders";
 import Categories from "./Categories";
 import Footer from "./Footer";
 import Image from "next/image";
-import Title from "@/components/ui/Title";
+import Title from "../../components/ui/Title";
 import { RiEBike2Fill, RiLayoutBottomLine } from "react-icons/ri";
 import { MdLogout, MdOutlineFastfood } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";

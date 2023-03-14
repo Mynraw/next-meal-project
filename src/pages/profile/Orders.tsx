@@ -1,4 +1,4 @@
-import { orders } from "@/data/orders";
+import { orders } from "../../data/orders"
 
 const Orders = () => {
   return (

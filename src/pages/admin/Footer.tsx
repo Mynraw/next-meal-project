@@ -1,6 +1,6 @@
-import Input from "@/components/form/Input";
+import Input from "../../components/form/Input";
 import { useFormik } from "formik";
-import { accountInfoSchema } from "schema/accountInfoSchema";
+import { accountInfoSchema } from "../../../schema/accountInfoSchema";
 
 const Footer = () => {
   const onSubmit = async (values, actions) => {

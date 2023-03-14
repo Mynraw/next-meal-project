@@ -1,5 +1,5 @@
-import Input from "@/components/form/Input";
-import { accountInfoSchema } from "schema/accountInfoSchema";
+import Input from "../../components/form/Input";
+import { accountInfoSchema } from "../../../schema/accountInfoSchema";
 import { useFormik } from "formik";
 
 const Account = () => {

@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { signIn, useSession, getSession } from "next-auth/react";
 import axios from "axios";
-import Title from "@/components/ui/Title";
+import Title from "../../components/ui/Title";
 import Link from "next/link";
-import Input from "@/components/form/Input";
+import Input from "../../components/form/Input";
 import { useFormik } from "formik";
-import { loginSchema } from "schema/loginSchema";
+import { loginSchema } from "../../../schema/loginSchema"
 import { FaGithub } from "react-icons/fa";
 import { toast } from "react-toastify";
 

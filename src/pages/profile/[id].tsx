@@ -7,7 +7,7 @@ import Account from "./Account";
 import Password from "./Password";
 import Orders from "./Orders";
 import Image from "next/image";
-import Title from "@/components/ui/Title";
+import Title from "../../components/ui/Title";
 import { AiFillHome } from "react-icons/ai";
 import { HiKey } from "react-icons/hi";
 import { RiEBike2Fill } from "react-icons/ri";

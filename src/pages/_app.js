@@ -2,12 +2,12 @@ import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import store from "@/redux/store";
+import store from "../redux/store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/styles/globals.css";
+import "../styles/globals.css";
 
-import Layout from "@/layout/Layout";
+import Layout from "../layout/Layout";
 
 export default function App({
   Component,

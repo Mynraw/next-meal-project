@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { meals } from "@/data/meals";
+import { meals } from "../../data/meals";
 import { GiShoppingBag } from "react-icons/gi";
 
 const sizes = "(max-width: 768px) 100vw (max-width: 1200px) 50vw, 33vw";

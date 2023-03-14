@@ -1,10 +1,10 @@
 import {useSelector, useDispatch} from "react-redux";
-import {reset} from "@/redux/cartSlice";
-import Title from "@/components/ui/Title";
+import { reset } from "../../redux/store"
+import Title from "../../components/ui/Title";
 import Image from "next/image";
 
 const Cart = () => {
-    const cart = useSelector((state) => state.cart);
+    const cart = useSelector((state: any) => state.cart);
     const dispatch = useDispatch();
 
     const handleReset = () => {

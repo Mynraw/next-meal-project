@@ -2,7 +2,8 @@ import Title from "./ui/Title";
 import Slider from "react-slick";
 import Image from "next/image";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { customers } from "@/data/customers";
+import { customers } from "../data/customers";
+import { CSSProperties } from "react";
 
 const SampleNextArrow = (props) => {
   const { className, onClick } = props;
@@ -25,7 +26,7 @@ const SamplePrevArrow = (props) => {
 const Customers = () => {
   const sizes = "(max-width: 768px) 100vw (max-width: 1200px) 50vw, 33vw";
 
-  const style = {
+  const style: CSSProperties = {
     objectFit: "cover",
   };
 

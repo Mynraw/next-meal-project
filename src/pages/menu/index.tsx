@@ -1,9 +1,9 @@
-import Reservation from "@/components/Reservation";
+import Menu from "../../components/Menu";
 
 const Index = () => {
   return (
     <div>
-      <Reservation />
+      <Menu />
     </div>
   );
 };

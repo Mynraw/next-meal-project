@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { addProduct } from "@/redux/cartSlice";
+import { addProduct } from "../../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
-import Title from "@/components/ui/Title";
+import Title from "../../components/ui/Title";
 
 const style = {
   objectFit: "contain",

@@ -14,7 +14,7 @@ const Carousel = () => {
     autoplaySpeed: 3000,
     draggable: true,
     // dotsClass: "text-red",
-    appendDots: (dots) => (
+    appendDots: (dots: any) => (
       <div>
         <ul>{dots}</ul>
       </div>

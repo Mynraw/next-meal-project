@@ -1,5 +1,5 @@
-import User from "@/models/User";
-import dbConnect from "@/lib/dbConnect";
+import User from "../../../models/User";
+import dbConnect from "../../../lib/dbConnect";
 
 const handler = async (req, res) => {
   await dbConnect();

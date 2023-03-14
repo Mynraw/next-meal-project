@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Title from "@/components/ui/Title";
-import Input from "@/components/form/Input";
+import Title from "../../components/ui/Title";
+import Input from "../../components/form/Input";
 import { useFormik } from "formik";
-import { adminLoginSchema } from "schema/adminLoginSchema";
+import { adminLoginSchema } from "../../../schema/adminLoginSchema";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";

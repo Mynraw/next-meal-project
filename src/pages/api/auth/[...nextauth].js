@@ -5,8 +5,8 @@ import GoogleProvider from "next-auth/providers/google";
 import TwitterProvider from "next-auth/providers/twitter";
 // import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 // import clientPromise from "../../../lib/mongodb";
-import User from "@/models/User";
-import dbConnect from "@/lib/dbConnect";
+import User from "../../../models/User";
+import dbConnect from "../../../lib/dbConnect";
 import bcrypt from "bcryptjs";
 dbConnect();
 

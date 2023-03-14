@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useFormik } from "formik";
-import { registerSchema } from "schema/registerSchema";
+import { registerSchema } from "../../../schema/registerSchema";
 import { toast } from "react-toastify";
-import Title from "@/components/ui/Title";
-import Input from "@/components/form/Input";
+import Title from "../../components/ui/Title";
+import Input from "../../components/form/Input";
 import Link from "next/link";
 
 const Register = () => {
