@@ -59,7 +59,7 @@ const Index = ({user}) => {
                 <div className="flex flex-col gap-3 col-span-5 md:col-span-1 border border-gray-300 pt-5">
                     <div className="relative w-24 h-24 mx-auto">
                         <Image
-                            src={"/images/kekw.jpg"}
+                            src={user.image ? user.image : "/images/kekw.jpg"}
                             alt="goat"
                             sizes={sizes}
                             fill
@@ -108,7 +108,7 @@ const Index = ({user}) => {
                 </div>
                 <div className="col-span-5 md:col-span-4 h-full">
                     <Title addClass={"text-4xl text-left"}>{tabTitle}</Title>
-                    {menuTab === 0 && <Account/>}
+                    {menuTab === 0 && <Account user={user}/>}
                     {menuTab === 1 && <Password/>}
                     {menuTab === 2 && <Orders/>}
                 </div>

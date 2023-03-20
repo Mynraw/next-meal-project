@@ -4,7 +4,7 @@ export const accountInfoSchema = Yup.object({
   fullName: Yup.string()
     .required("Name can't be empty.")
     .min(5, "Name should be at least 5 or more characters."),
-  eMail: Yup.string()
+  email: Yup.string()
     .email("Please enter an valid e-mail address.")
     .matches(
       /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
@@ -20,7 +20,7 @@ export const accountInfoSchema = Yup.object({
   address: Yup.string()
     .required("Address can't be empty.")
     .min(8, "Please enter an valid address."),
-  job: Yup.string(),
+  title: Yup.string(),
   bio: Yup.string(),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters long")
@@ -38,7 +38,7 @@ export const accountInfoSchema = Yup.object({
     .matches(/[0-9]/, "Password requires a number")
     .matches(/[a-z]/, "Password requires a lowercase letter")
     .matches(/[A-Z]/, "Password requires an uppercase letter")
-    .matches(/[^\w]/, "Password requires a symbol")
+    .matches(/\W/, "Password requires a symbol")
     .required("Password can't be empty."),
   confirmNewPassword: Yup.string()
     .oneOf([Yup.ref("newPassword"), null], "Passwords doesn't match.")

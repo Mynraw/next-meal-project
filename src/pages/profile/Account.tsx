@@ -2,7 +2,7 @@ import Input from "../../components/form/Input";
 import { accountInfoSchema } from "../../../schema/accountInfoSchema";
 import { useFormik } from "formik";
 
-const Account = () => {
+const Account = ({user}) => {
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 3000));
     actions.resetForm();
@@ -11,12 +11,12 @@ const Account = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
-        fullName: "",
-        eMail: "",
-        phoneNumber: "",
-        address: "",
-        job: "",
-        bio: "",
+        fullName: user?.fullName,
+        email: user?.email,
+        phoneNumber: user?.phoneNumber,
+        address: user?.address,
+        title: user?.title,
+        bio: user?.bio,
       },
       validationSchema: accountInfoSchema,
       onSubmit,
@@ -34,12 +34,12 @@ const Account = () => {
     },
     {
       id: 2,
-      name: "eMail",
+      name: "email",
       type: "email",
       placeholder: "your e-mail",
-      value: values.eMail,
-      errormessage: errors.eMail,
-      touched: touched.eMail,
+      value: values.email,
+      errormessage: errors.email,
+      touched: touched.email,
     },
     {
       id: 3,
@@ -61,12 +61,12 @@ const Account = () => {
     },
     {
       id: 5,
-      name: "job",
+      name: "title",
       type: "text",
       placeholder: "your title",
-      value: values.job,
-      errormessage: errors.job,
-      touched: touched.job,
+      value: values.title,
+      errormessage: errors.title,
+      touched: touched.title,
     },
     {
       id: 6,
