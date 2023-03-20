@@ -109,7 +109,7 @@ const Index = ({user}) => {
                 <div className="col-span-5 md:col-span-4 h-full">
                     <Title addClass={"text-4xl text-left"}>{tabTitle}</Title>
                     {menuTab === 0 && <Account user={user}/>}
-                    {menuTab === 1 && <Password/>}
+                    {menuTab === 1 && <Password user={user}/>}
                     {menuTab === 2 && <Orders/>}
                 </div>
             </div>

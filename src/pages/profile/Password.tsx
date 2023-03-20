@@ -1,51 +1,56 @@
 import Input from "../../components/form/Input";
 import { accountInfoSchema } from "../../../schema/accountInfoSchema"
 import { useFormik } from "formik";
+import axios from "axios";
 
-const Password = () => {
+const Password = ({user}) => {
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    actions.resetForm();
+    try {
+      const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`, values);
+      actions.resetForm();
+    } catch (error) {
+      console.log(`Here is ur error: ${error}`);
+    }
   };
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
-        currentPassword: "",
-        newPassword: "",
-        confirmNewPassword: "",
+        // currentPassword: "",
+        password: "",
+        passwordConfirm: "",
       },
       validationSchema: accountInfoSchema,
       onSubmit,
     });
 
   const inputsPassword = [
+    // {
+    //   id: 1,
+    //   name: "password",
+    //   type: "password",
+    //   placeholder: "your current password",
+    //   value: values.password,
+    //   errormessage: errors.password,
+    //   touched: touched.password,
+    // },
     {
       id: 1,
-      name: "currentPassword",
+      name: "password",
       type: "password",
-      placeholder: "your current password",
-      value: values.currentPassword,
-      errormessage: errors.currentPassword,
-      touched: touched.currentPassword,
+      placeholder: "new password",
+      value: values.password,
+      errormessage: errors.password,
+      touched: touched.password,
     },
     {
       id: 2,
-      name: "newPassword",
-      type: "password",
-      placeholder: "new password",
-      value: values.newPassword,
-      errormessage: errors.newPassword,
-      touched: touched.newPassword,
-    },
-    {
-      id: 3,
-      name: "confirmNewPassword",
+      name: "passwordConfirm",
       type: "password",
       placeholder: "confirm new password",
-      value: values.confirmNewPassword,
-      errormessage: errors.confirmNewPassword,
-      touched: touched.confirmNewPassword,
+      value: values.passwordConfirm,
+      errormessage: errors.passwordConfirm,
+      touched: touched.passwordConfirm,
     },
   ];
 
@@ -60,7 +65,6 @@ const Password = () => {
             }`}
             onChange={handleChange}
             onBlur={handleBlur}
-            value={input.value}
             {...input}
           />
         ))}

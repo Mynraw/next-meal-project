@@ -40,8 +40,8 @@ export const accountInfoSchema = Yup.object({
     .matches(/[A-Z]/, "Password requires an uppercase letter")
     .matches(/\W/, "Password requires a symbol")
     .required("Password can't be empty."),
-  confirmNewPassword: Yup.string()
-    .oneOf([Yup.ref("newPassword"), null], "Passwords doesn't match.")
+  passwordConfirm: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords doesn't match.")
     .required("Password can't be empty."),
   location: Yup.string().required("Can't be empty"),
   description: Yup.string().required("Can't be empty"),

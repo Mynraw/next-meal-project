@@ -16,6 +16,7 @@ const Register = () => {
       console.log(res);
       if (res.status === 200) {
         toast(`Signed successfully!`, { theme: "dark" });
+        actions.resetForm();
       }
     } catch (error) {
       console.log(error);

@@ -1,25 +1,33 @@
+import React from "react";
+import { useFormik } from "formik";
+import axios from "axios";
 import Input from "../../components/form/Input";
 import { accountInfoSchema } from "../../../schema/accountInfoSchema";
-import { useFormik } from "formik";
 
 const Account = ({user}) => {
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    actions.resetForm();
+    try {
+      const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`, values);
+        actions.resetForm();
+    } catch (error) {
+      console.log(`Here is ur error: ${error}`);
+    }
   };
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
+      // here is the magic(?)
+      enableReinitialize: true,
       initialValues: {
-        fullName: user?.fullName,
-        email: user?.email,
-        phoneNumber: user?.phoneNumber,
-        address: user?.address,
-        title: user?.title,
-        bio: user?.bio,
+        fullName: user.fullName ? user.fullName : "",
+        email: user.email ? user.email : "",
+        phoneNumber: user.phoneNumber ? user.phoneNumber : "",
+        address: user.address ? user.address : "",
+        title: user.title ? user.title : "",
+        bio: user.bio ? user.bio : "",
       },
-      validationSchema: accountInfoSchema,
       onSubmit,
+      validationSchema: accountInfoSchema,
     });
 
   const inputsAccount = [
@@ -88,14 +96,14 @@ const Account = ({user}) => {
             key={input.id}
             onChange={handleChange}
             onBlur={handleBlur}
-            value={input.value}
             {...input}
           />
         ))}
       </div>
-      <button type="submit" className="btn-primary capitalize mt-3.5">
+      <button className="btn-primary capitalize mt-3.5" type="submit">
         update
       </button>
+      {/*<input type={"submit"} className={"btn-primary capitalize mt-3.5"} />*/}
     </form>
   );
 };
