@@ -4,13 +4,13 @@ export const crudReducer = (products, action) => {
       return [
         ...products,
         {
-          id: action.id,
+          id: action._id,
           name: action.name,
         },
       ];
     }
     case "deleted": {
-      return products.filter((product) => product.id !== action.id);
+      return products.filter((product) => product._id !== action._id);
     }
     default: {
       throw Error("Unknown action. " + action.type);

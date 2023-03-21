@@ -1,6 +1,8 @@
-import { useReducer } from "react";
+import axios from "axios";
+import {FormEvent, useEffect, useReducer} from "react";
 import Input from "../../components/form/Input";
 import { crudReducer } from "../../store/crudReducer"
+import {array} from "yup";
 
 let nextProductId = 4;
 const initialProducts = [
@@ -18,13 +20,22 @@ const initialProducts = [
   },
 ];
 
-const Categories = () => {
-  const [products, dispatch] = useReducer(crudReducer, initialProducts);
+let initialMeals = [];
 
-  const handleAddProduct = (name) => {
+const Categories = () => {
+  const getProducts = async () => {
+
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/categories/`);
+    initialMeals = [...res.data];
+  }
+  const [products, dispatch] = useReducer(crudReducer, initialMeals);
+
+  const handleAddProduct = async (name) => {
     name.preventDefault();
     const { productName } = name.target;
 
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/categories/`, {name: productName.value});
+    console.log(products);
     dispatch({
       type: "added",
       id: nextProductId++,
@@ -32,6 +43,12 @@ const Categories = () => {
     });
     productName.value = "";
   };
+
+  // TODO: initialMeals should've been ready before render.
+
+  useEffect(() => {
+    getProducts();
+  }, [])
 
   const handleDeleteProduct = (productId: number) => {
     dispatch({
@@ -55,10 +72,10 @@ const Categories = () => {
         </div>
       </form>
       <div className="border border-primary mt-5 w-full rounded-xl p-3 max-h-72 overflow-auto">
-        {products.map((product) => (
+        {initialMeals.map((product) => (
           <div
             className="flex justify-between items-center my-3"
-            key={product.id}
+            key={product._id}
           >
             <div>
               <span className="font-bold text-xl capitalize bg-white">
@@ -68,7 +85,7 @@ const Categories = () => {
             <div className="flex gap-2">
               <button
                 className="py-1 px-2 bg-red-900 text-white rounded-lg capitalize"
-                onClick={() => handleDeleteProduct(product.id)}
+                onClick={() => handleDeleteProduct(product._id)}
               >
                 delete
               </button>

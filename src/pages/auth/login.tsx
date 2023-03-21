@@ -123,7 +123,7 @@ export const getServerSideProps: GetServerSideProps = async ({req}) => {
     const session = await getSession({req});
 
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
-    const user = res.data?.find((user) => user.email === session?.user.email);
+    const user = res.data?.find((user: any) => user.email === session?.user.email);
 
     if (session && user) {
         return {
